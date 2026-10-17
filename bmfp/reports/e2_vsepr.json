@@ -1,0 +1,668 @@
+{
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "duration": 600.0,
+ "variants": {
+  "naive": {
+   "state_changes_per_min": {
+    "mean": 25.1,
+    "min": 24.5,
+    "max": 25.9,
+    "n": 5
+   },
+   "state_changes_per_min_vsepr": {
+    "mean": 14.3,
+    "min": 10.3,
+    "max": 18.9,
+    "n": 5
+   },
+   "state_changes_per_min_resonance": {
+    "mean": 10.8,
+    "min": 6.0,
+    "max": 15.6,
+    "n": 5
+   },
+   "all_state_changes_per_min": {
+    "mean": 27.02,
+    "min": 24.7,
+    "max": 30.5,
+    "n": 5
+   },
+   "fairness_moves_per_min": {
+    "mean": 1.92,
+    "min": 0.2,
+    "max": 4.6,
+    "n": 5
+   },
+   "flaps": {
+    "mean": 165.6,
+    "min": 155.0,
+    "max": 174.0,
+    "n": 5
+   },
+   "vsepr_flaps": {
+    "mean": 114.4,
+    "min": 78.0,
+    "max": 149.0,
+    "n": 5
+   },
+   "demotions": {
+    "mean": 59.8,
+    "min": 39.0,
+    "max": 83.0,
+    "n": 5
+   },
+   "promotions": {
+    "mean": 76.4,
+    "min": 56.0,
+    "max": 102.0,
+    "n": 5
+   },
+   "vsepr_repair_promotions": {
+    "mean": 6.8,
+    "min": 4.0,
+    "max": 9.0,
+    "n": 5
+   },
+   "vsepr_candidates": {
+    "mean": 59.8,
+    "min": 39.0,
+    "max": 83.0,
+    "n": 5
+   },
+   "vsepr_cooldown_skips": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap_any": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "active_fraction_start": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_end": {
+    "mean": 0.923333,
+    "min": 0.9,
+    "max": 0.95,
+    "n": 5
+   },
+   "active_fraction_mean": {
+    "mean": 0.855833,
+    "min": 0.821667,
+    "max": 0.879167,
+    "n": 5
+   },
+   "mean_max_avg_load_ratio": {
+    "mean": 3.131114,
+    "min": 2.765035,
+    "max": 3.515169,
+    "n": 5
+   },
+   "mean_peak_relay_load": {
+    "mean": 5.374737,
+    "min": 5.066667,
+    "max": 5.868421,
+    "n": 5
+   },
+   "mean_avg_relay_load": {
+    "mean": 1.792449,
+    "min": 1.708435,
+    "max": 1.940708,
+    "n": 5
+   },
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 5
+   },
+   "delivery_ratio": {
+    "mean": 0.925177,
+    "min": 0.901747,
+    "max": 0.944844,
+    "n": 5
+   },
+   "ghost_time_share": {
+    "mean": 0.090333,
+    "min": 0.079167,
+    "max": 0.100833,
+    "n": 5
+   },
+   "share_to_asleep": {
+    "mean": 0.075614,
+    "min": 0.055817,
+    "max": 0.09875,
+    "n": 5
+   },
+   "to_asleep_delivered_share": {
+    "mean": 0.010682,
+    "min": 0.005029,
+    "max": 0.015274,
+    "n": 5
+   },
+   "mean_hops": {
+    "mean": 5.955302,
+    "min": 5.72114,
+    "max": 6.434276,
+    "n": 5
+   },
+   "drops_congestion": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   }
+  },
+  "damped": {
+   "state_changes_per_min": {
+    "mean": 24.36,
+    "min": 23.0,
+    "max": 25.2,
+    "n": 5
+   },
+   "state_changes_per_min_vsepr": {
+    "mean": 0.6,
+    "min": 0.2,
+    "max": 1.2,
+    "n": 5
+   },
+   "state_changes_per_min_resonance": {
+    "mean": 23.76,
+    "min": 22.8,
+    "max": 24.0,
+    "n": 5
+   },
+   "all_state_changes_per_min": {
+    "mean": 41.36,
+    "min": 38.4,
+    "max": 47.4,
+    "n": 5
+   },
+   "fairness_moves_per_min": {
+    "mean": 17.0,
+    "min": 15.4,
+    "max": 22.2,
+    "n": 5
+   },
+   "flaps": {
+    "mean": 104.6,
+    "min": 98.0,
+    "max": 119.0,
+    "n": 5
+   },
+   "vsepr_flaps": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 5
+   },
+   "demotions": {
+    "mean": 3.0,
+    "min": 1.0,
+    "max": 6.0,
+    "n": 5
+   },
+   "promotions": {
+    "mean": 3.0,
+    "min": 1.0,
+    "max": 6.0,
+    "n": 5
+   },
+   "vsepr_repair_promotions": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_candidates": {
+    "mean": 31.8,
+    "min": 27.0,
+    "max": 38.0,
+    "n": 5
+   },
+   "vsepr_cooldown_skips": {
+    "mean": 5.8,
+    "min": 3.0,
+    "max": 7.0,
+    "n": 5
+   },
+   "vsepr_no_swap": {
+    "mean": 23.0,
+    "min": 19.0,
+    "max": 25.0,
+    "n": 5
+   },
+   "vsepr_no_swap_any": {
+    "mean": 22.0,
+    "min": 18.0,
+    "max": 25.0,
+    "n": 5
+   },
+   "active_fraction_start": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_end": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "mean_max_avg_load_ratio": {
+    "mean": 2.135375,
+    "min": 2.051513,
+    "max": 2.175847,
+    "n": 5
+   },
+   "mean_peak_relay_load": {
+    "mean": 8.691579,
+    "min": 8.154386,
+    "max": 8.994737,
+    "n": 5
+   },
+   "mean_avg_relay_load": {
+    "mean": 4.088224,
+    "min": 4.003947,
+    "max": 4.163268,
+    "n": 5
+   },
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 5
+   },
+   "delivery_ratio": {
+    "mean": 0.854136,
+    "min": 0.838258,
+    "max": 0.891369,
+    "n": 5
+   },
+   "ghost_time_share": {
+    "mean": 0.1685,
+    "min": 0.153333,
+    "max": 0.214167,
+    "n": 5
+   },
+   "share_to_asleep": {
+    "mean": 0.146837,
+    "min": 0.109458,
+    "max": 0.163086,
+    "n": 5
+   },
+   "to_asleep_delivered_share": {
+    "mean": 0.006662,
+    "min": 0.004585,
+    "max": 0.009553,
+    "n": 5
+   },
+   "mean_hops": {
+    "mean": 9.372488,
+    "min": 9.063068,
+    "max": 9.57661,
+    "n": 5
+   },
+   "drops_congestion": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   }
+  },
+  "off": {
+   "state_changes_per_min": {
+    "mean": 23.96,
+    "min": 23.8,
+    "max": 24.0,
+    "n": 5
+   },
+   "state_changes_per_min_vsepr": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "state_changes_per_min_resonance": {
+    "mean": 23.96,
+    "min": 23.8,
+    "max": 24.0,
+    "n": 5
+   },
+   "all_state_changes_per_min": {
+    "mean": 39.56,
+    "min": 39.4,
+    "max": 39.6,
+    "n": 5
+   },
+   "fairness_moves_per_min": {
+    "mean": 15.6,
+    "min": 15.6,
+    "max": 15.6,
+    "n": 5
+   },
+   "flaps": {
+    "mean": 100.6,
+    "min": 98.0,
+    "max": 108.0,
+    "n": 5
+   },
+   "vsepr_flaps": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "demotions": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "promotions": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_repair_promotions": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_candidates": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_cooldown_skips": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap_any": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "active_fraction_start": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_end": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "mean_max_avg_load_ratio": {
+    "mean": 2.154336,
+    "min": 2.046023,
+    "max": 2.246683,
+    "n": 5
+   },
+   "mean_peak_relay_load": {
+    "mean": 8.721053,
+    "min": 8.463158,
+    "max": 9.187719,
+    "n": 5
+   },
+   "mean_avg_relay_load": {
+    "mean": 4.062686,
+    "min": 3.821217,
+    "max": 4.290186,
+    "n": 5
+   },
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 5
+   },
+   "delivery_ratio": {
+    "mean": 0.85134,
+    "min": 0.831888,
+    "max": 0.893589,
+    "n": 5
+   },
+   "ghost_time_share": {
+    "mean": 0.153333,
+    "min": 0.153333,
+    "max": 0.153333,
+    "n": 5
+   },
+   "share_to_asleep": {
+    "mean": 0.149683,
+    "min": 0.107241,
+    "max": 0.168772,
+    "n": 5
+   },
+   "to_asleep_delivered_share": {
+    "mean": 0.006945,
+    "min": 0.003914,
+    "max": 0.009533,
+    "n": 5
+   },
+   "mean_hops": {
+    "mean": 9.34139,
+    "min": 8.940048,
+    "max": 9.586896,
+    "n": 5
+   },
+   "drops_congestion": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   }
+  },
+  "naive_cell": {
+   "state_changes_per_min": {
+    "mean": 29.38,
+    "min": 27.7,
+    "max": 31.9,
+    "n": 5
+   },
+   "state_changes_per_min_vsepr": {
+    "mean": 25.3,
+    "min": 19.9,
+    "max": 27.8,
+    "n": 5
+   },
+   "state_changes_per_min_resonance": {
+    "mean": 4.08,
+    "min": 1.2,
+    "max": 7.8,
+    "n": 5
+   },
+   "all_state_changes_per_min": {
+    "mean": 29.6,
+    "min": 28.4,
+    "max": 32.3,
+    "n": 5
+   },
+   "fairness_moves_per_min": {
+    "mean": 0.22,
+    "min": 0.0,
+    "max": 0.7,
+    "n": 5
+   },
+   "flaps": {
+    "mean": 196.0,
+    "min": 178.0,
+    "max": 219.0,
+    "n": 5
+   },
+   "vsepr_flaps": {
+    "mean": 174.4,
+    "min": 133.0,
+    "max": 194.0,
+    "n": 5
+   },
+   "demotions": {
+    "mean": 116.4,
+    "min": 89.0,
+    "max": 129.0,
+    "n": 5
+   },
+   "promotions": {
+    "mean": 135.2,
+    "min": 108.0,
+    "max": 147.0,
+    "n": 5
+   },
+   "vsepr_repair_promotions": {
+    "mean": 1.4,
+    "min": 0.0,
+    "max": 2.0,
+    "n": 5
+   },
+   "vsepr_candidates": {
+    "mean": 116.4,
+    "min": 89.0,
+    "max": 129.0,
+    "n": 5
+   },
+   "vsepr_cooldown_skips": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "vsepr_no_swap_any": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   },
+   "active_fraction_start": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 5
+   },
+   "active_fraction_end": {
+    "mean": 0.87,
+    "min": 0.85,
+    "max": 0.9,
+    "n": 5
+   },
+   "active_fraction_mean": {
+    "mean": 0.871,
+    "min": 0.864167,
+    "max": 0.875,
+    "n": 5
+   },
+   "mean_max_avg_load_ratio": {
+    "mean": 3.358616,
+    "min": 3.215303,
+    "max": 3.545503,
+    "n": 5
+   },
+   "mean_peak_relay_load": {
+    "mean": 5.469825,
+    "min": 5.101754,
+    "max": 5.842105,
+    "n": 5
+   },
+   "mean_avg_relay_load": {
+    "mean": 1.654968,
+    "min": 1.591932,
+    "max": 1.732688,
+    "n": 5
+   },
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 5
+   },
+   "delivery_ratio": {
+    "mean": 0.914486,
+    "min": 0.900836,
+    "max": 0.932788,
+    "n": 5
+   },
+   "ghost_time_share": {
+    "mean": 0.116167,
+    "min": 0.098333,
+    "max": 0.124167,
+    "n": 5
+   },
+   "share_to_asleep": {
+    "mean": 0.086604,
+    "min": 0.067874,
+    "max": 0.101151,
+    "n": 5
+   },
+   "to_asleep_delivered_share": {
+    "mean": 0.01223,
+    "min": 0.008523,
+    "max": 0.01964,
+    "n": 5
+   },
+   "mean_hops": {
+    "mean": 5.648879,
+    "min": 5.536065,
+    "max": 5.789769,
+    "n": 5
+   },
+   "drops_congestion": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 5
+   }
+  }
+ }
+}

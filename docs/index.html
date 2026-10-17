@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BMFP Design Journal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A student's fullerene-shaped network protocol, its design journal, and the discrete-event simulator that measured it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Unbounded:wght@500;600&display=swap">
+<style>
+/* Layout: a lab-notebook page. An 11.5rem margin column carries the journal cross-reference behind a ruled margin line; the working column holds text, the live specimen plate and the instruments. Phones drop the margin into an eyebrow. */
+:root {
+  color-scheme: light;
+  /* paper and ink: the engineering pad, by day */
+  --paper: #eef2ec;
+  --plate: #f9fbf8;
+  --plate-2: #e3e9e1;
+  --ink: #17201c;
+  --ink-2: #46514b;
+  --ink-3: #5f6a64;
+  --rule: #d4dcd3;
+  --rule-2: #b4c0b7;
+  --edge: #7a877f;
+  --grid: rgba(28, 70, 48, 0.075);
+  --margin-rule: #e2b9b9;
+  --accent: #6250d6;
+  --stick: #8d9890;
+  --pencil: #3b4741;
+  --shadow: rgba(23, 32, 28, 0.14);
+  /* sphere shading on the canvas model: the highlight and shadow mixed into each ball */
+  --shade-hi: #ffffff;
+  --shade-lo: #000000;
+  /* node states: model-kit identity (validated, light surface #f9fbf8) */
+  --st-active: #2a78d6;
+  --st-standby: #eda100;
+  --st-ghost: #1baf7a;
+  --st-dead: #d03b3b;
+  /* experiment series: categorical slots 1-4 (validated) */
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --s4: #eda100;
+  /* type */
+  --font-display: "Unbounded", "Arial Black", "Helvetica Neue", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --fs-xs: 0.75rem;
+  --fs-s: 0.875rem;
+  --fs-m: 1.0625rem;
+  --fs-l: 1.25rem;
+  --fs-xl: clamp(1.45rem, 1.1rem + 1.3vw, 2rem);
+  --fs-xxl: clamp(1.9rem, 1.1rem + 2.5vw, 2.75rem);
+  --header-h: 3.25rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    /* the blackboard, by night */
+    --paper: #131a18;
+    --plate: #1a2320;
+    --plate-2: #232e2a;
+    --ink: #e7ede8;
+    --ink-2: #b8c3bc;
+    --ink-3: #94a09a;
+    --rule: #2a3531;
+    --rule-2: #3d4a45;
+    --edge: #6b7871;
+    --grid: rgba(214, 240, 226, 0.05);
+    --margin-rule: #5b3b40;
+    --accent: #9085e9;
+    --stick: #6f7c75;
+    --pencil: #c9d3cd;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --shade-hi: #ffffff;
+    --shade-lo: #000000;
+    --st-active: #3987e5;
+    --st-standby: #c98500;
+    --st-ghost: #199e70;
+    --st-dead: #d03b3b;
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #131a18;
+  --plate: #1a2320;
+  --plate-2: #232e2a;
+  --ink: #e7ede8;
+  --ink-2: #b8c3bc;
+  --ink-3: #94a09a;
+  --rule: #2a3531;
+  --rule-2: #3d4a45;
+  --edge: #6b7871;
+  --grid: rgba(214, 240, 226, 0.05);
+  --margin-rule: #5b3b40;
+  --accent: #9085e9;
+  --stick: #6f7c75;
+  --pencil: #c9d3cd;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --shade-hi: #ffffff;
+  --shade-lo: #000000;
+  --st-active: #3987e5;
+  --st-standby: #c98500;
+  --st-ghost: #199e70;
+  --st-dead: #d03b3b;
+  --s1: #3987e5;
+  --s2: #d95926;
+  --s3: #199e70;
+  --s4: #c98500;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1rem); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-m);
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--paper);
+}
+[hidden] { display: none !important; }
+img, canvas, svg { max-width: 100%; }
+a { color: inherit; text-decoration-color: var(--edge); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+code, kbd, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+kbd { border: 1px solid var(--edge); border-bottom-width: 2px; border-radius: 3px; padding: 0 0.3em; font-size: 0.82em; background: var(--plate); }
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); top: calc(env(safe-area-inset-top, 0px) + 0.5rem); z-index: 40; background: var(--plate); padding: 0.4rem 0.7rem; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- masthead ---------------------------------------------------------- */
+.masthead {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.masthead .bar {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 0.5rem; }
+.wordmark svg { width: 1.25rem; height: 1.25rem; }
+.nav { flex: 1 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+/* max-content + margin-left:auto right-aligns the links, and any overflow goes right, where it can be scrolled to */
+.nav ul { list-style: none; margin: 0 0 0 auto; padding: 0.25rem 0; display: flex; gap: 0.25rem; width: max-content; }
+.nav a { display: block; white-space: nowrap; text-decoration: none; font-size: var(--fs-s); color: var(--ink-2); padding: 0.3rem 0.55rem; border-radius: 3px; }
+.nav a:hover { color: var(--ink); background: var(--plate-2); }
+.nav .nav-toggle { display: none; } /* two classes: beats .btn's display */
+@media (max-width: 760px) { .wordmark .wm-sub { display: none; } }
+/* below 960px the seven links do not fit beside the wordmark: they move into a "Sections" menu */
+@media (max-width: 960px) {
+  .js .nav { overflow: visible; display: flex; justify-content: flex-end; }
+  .js .nav .nav-toggle { display: inline-flex; }
+  .js .nav ul { display: none; }
+  .js .nav.open ul {
+    display: grid; gap: 0; position: absolute; z-index: 25; top: 100%; margin: 0;
+    right: max(16px, env(safe-area-inset-right, 0px)); width: min(17rem, calc(100vw - 32px));
+    padding: 0.35rem; background: var(--plate); border: 1px solid var(--rule-2); border-radius: 4px;
+    box-shadow: 0 8px 22px var(--shadow);
+  }
+  .js .nav.open a { font-size: var(--fs-m); padding: 0.6rem 0.75rem; color: var(--ink); }
+}
+.wm-sub { font-family: var(--font-mono); font-weight: 400; font-size: var(--fs-xs); color: var(--ink-3); letter-spacing: 0; }
+
+.notice {
+  max-width: 76rem;
+  margin: 0.75rem auto 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--plate-2);
+  border: 1px dashed var(--edge);
+  border-radius: 3px;
+  padding: 0.55rem 0.75rem;
+}
+
+/* ---- page frame -------------------------------------------------------- */
+.page {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 2rem;
+}
+.sec { padding-block: 4rem; border-top: 1px solid var(--rule); display: grid; gap: 0.75rem 2.25rem; }
+.sec:first-child { border-top: 0; }
+.sec-margin { min-width: 0; font-family: var(--font-mono); font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-3); letter-spacing: 0.02em; }
+.sec-margin b { display: block; color: var(--ink-2); font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; }
+.sec-main { min-width: 0; display: grid; gap: 1.5rem; align-content: start; }
+.sec-main > *, .chart-grid > *, .multiples > *, .charts-live > *, .instrument > *, .cols2 > *, .hero-grid > *, .settings > *, .plot-area > * { min-width: 0; }
+@media (min-width: 960px) {
+  .sec { grid-template-columns: 11.5rem minmax(0, 1fr); }
+  .sec-margin { padding-top: 0.55rem; }
+  .sec-margin > div { position: sticky; top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1.25rem); }
+  .sec-main { border-left: 1px solid var(--margin-rule); padding-left: 2.25rem; }
+}
+.sec h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-xl); line-height: 1.15; letter-spacing: -0.01em; }
+.sec h3 { font-size: var(--fs-l); line-height: 1.3; font-weight: 700; }
+.sec h4 { font-size: 1.02rem; line-height: 1.35; font-weight: 700; }
+.lede { max-width: 40rem; color: var(--ink-2); }
+.prose { max-width: 40rem; display: grid; gap: 0.9rem; }
+.small { font-size: var(--fs-s); color: var(--ink-2); }
+.muted { color: var(--ink-3); }
+.eyebrow { font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 500; }
+blockquote { margin: 0; }
+.quote { border-left: 2px solid var(--ink); padding: 0.1rem 0 0.1rem 1.1rem; max-width: 38rem; display: grid; gap: 0.6rem; }
+.quote p { font-size: 1.08rem; }
+.quote footer, .attrib { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); }
+.subhead { display: grid; gap: 0.35rem; padding-top: 1rem; }
+.sec h3.eyebrow { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; line-height: 1.4; }
+
+/* ---- hero -------------------------------------------------------------- */
+.hero { padding-block: 3rem 4rem; }
+.hero-grid { display: grid; gap: 2rem; align-items: start; min-width: 0; }
+@media (min-width: 960px) { .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); gap: 2.5rem; } }
+.hero h1 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-xxl); line-height: 1.06; letter-spacing: -0.02em; max-width: 20ch; }
+.nw { white-space: nowrap; }
+.hero-text { display: grid; gap: 1.4rem; min-width: 0; }
+.figure0 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem 1rem; margin: 0; padding: 0.9rem 0 0; list-style: none; border-top: 1px solid var(--rule); max-width: 36rem; }
+@media (max-width: 520px) { .figure0 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.figure0 li { display: grid; align-content: start; gap: 0.25rem; min-width: 0; }
+.figure0 .n { font-family: var(--font-display); font-weight: 500; font-size: 1.9rem; line-height: 1; }
+.figure0 .l { font-size: var(--fs-s); color: var(--ink-2); line-height: 1.3; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.cta a { font-family: var(--font-mono); font-size: var(--fs-s); text-decoration: none; padding: 0.5rem 0.85rem; border: 1px solid var(--ink); border-radius: 3px; }
+.cta a.primary { background: var(--ink); color: var(--paper); }
+.cta a:hover { background: var(--plate-2); color: var(--ink); }
+
+/* specimen plate: the graph-paper ground the model sits on */
+.plate {
+  position: relative;
+  min-width: 0;
+  background-color: var(--plate);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -1px -1px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.plate canvas { display: block; width: 100%; aspect-ratio: 1 / 1; touch-action: pan-y; cursor: grab; border-radius: 4px; }
+.plate canvas:active { cursor: grabbing; }
+.plate-tag { position: absolute; left: 0.75rem; top: 0.6rem; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); pointer-events: none; }
+.plate-tag b { color: var(--ink); font-weight: 600; }
+.plate-cap { padding: 0.6rem 0.8rem 0.75rem; border-top: 1px solid var(--rule); background: var(--plate); border-radius: 0 0 4px 4px; display: grid; gap: 0.5rem; }
+.plate-cap p { font-size: var(--fs-s); color: var(--ink-2); }
+.legend-states { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: var(--fs-xs); font-family: var(--font-mono); color: var(--ink-2); list-style: none; margin: 0; padding: 0; }
+.legend-states li { display: inline-flex; align-items: center; gap: 0.35rem; }
+.legend-states svg { width: 14px; height: 14px; flex: none; }
+.cage-tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--paper); font-family: var(--font-mono); font-size: var(--fs-xs); padding: 0.3rem 0.5rem; border-radius: 3px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); z-index: 3; }
+
+/* ---- controls ---------------------------------------------------------- */
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  color: var(--ink);
+  background: var(--plate);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.1rem;
+}
+.btn:hover { background: var(--plate-2); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn svg { width: 0.9rem; height: 0.9rem; flex: none; }
+.seg { display: inline-flex; }
+.seg .btn { border-radius: 0; margin-left: -1px; }
+.seg .btn:first-child { border-radius: 3px 0 0 3px; margin-left: 0; }
+.seg .btn:last-child { border-radius: 0 3px 3px 0; }
+select { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--ink); background: var(--plate); border: 1px solid var(--edge); border-radius: 3px; padding: 0.35rem 0.5rem; }
+
+/* ---- the live cell ----------------------------------------------------- */
+.scen-tabs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.25rem), 1fr)); gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.scen-tabs .btn { width: 100%; height: 100%; flex-direction: column; align-items: flex-start; gap: 0.15rem; text-align: left; padding: 0.55rem 0.7rem; font-family: var(--font-body); font-size: 0.92rem; font-weight: 700; }
+.scen-tabs .btn small { font-family: var(--font-mono); font-weight: 400; font-size: var(--fs-xs); color: var(--ink-3); }
+.scen-tabs .btn[aria-pressed="true"] small { color: inherit; opacity: 0.8; }
+.scen-blurb { max-width: 46rem; color: var(--ink-2); min-height: 1.5em; }
+.instrument { display: grid; gap: 1.25rem; min-width: 0; }
+@media (min-width: 1100px) {
+  .instrument { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .instrument > .plate { position: sticky; top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1rem); }
+}
+.panel { display: grid; gap: 1rem; min-width: 0; }
+.transport { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.9rem; }
+.clock { font-family: var(--font-mono); font-size: var(--fs-s); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.clock b { color: var(--ink); font-weight: 600; font-size: 1.05rem; }
+.scrub { display: grid; gap: 0.15rem; }
+.scrub input[type="range"] { width: 100%; margin: 0; accent-color: var(--ink); height: 1.6rem; cursor: pointer; }
+.ticks { display: block; width: 100%; height: 18px; }
+.scrub-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.keys { font-size: var(--fs-xs); color: var(--ink-3); }
+.flags { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule); border-radius: 4px; background: var(--plate); list-style: none; margin: 0; padding: 0; }
+.flags li { padding: 0.6rem 0.65rem 0.65rem; display: grid; gap: 0.2rem; min-width: 0; border-left: 1px solid var(--rule); }
+.flags li:first-child { border-left: 0; }
+.flags .fl-h { display: flex; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.04em; }
+.flags .fl-h svg { width: 14px; height: 14px; flex: none; }
+.flags .fl-n { font-size: 1.75rem; font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.flags .fl-n small { font-size: var(--fs-xs); font-weight: 400; color: var(--ink-3); font-family: var(--font-mono); }
+.flags .fl-s { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); line-height: 1.35; }
+@media (max-width: 520px) { .flags { grid-template-columns: repeat(2, minmax(0, 1fr)); } .flags li:nth-child(3) { border-left: 0; } .flags li:nth-child(n+3) { border-top: 1px solid var(--rule); } }
+.stat { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.15rem 0.9rem; align-items: baseline; }
+.stat .v { font-size: 2.1rem; font-weight: 700; line-height: 1; grid-row: span 2; font-variant-numeric: tabular-nums; min-width: 4.2ch; }
+.stat .k { font-size: var(--fs-s); color: var(--ink); font-weight: 700; }
+.stat .d { font-size: var(--fs-xs); color: var(--ink-3); }
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.log li { border-bottom: 1px solid var(--rule); }
+.log button { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 6.4rem minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 0.75rem; row-gap: 0.05rem; width: 100%; padding: 0.45rem 0.25rem; font-size: var(--fs-s); line-height: 1.35; }
+.log .t { grid-column: 1; grid-row: 1; text-align: left; }
+.log .kd { grid-column: 1; grid-row: 2; }
+.log .tx { grid-column: 2; grid-row: 1 / span 2; }
+.log button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.log button:hover { background: var(--plate-2); }
+.log .t { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.log .kd { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--ink-2); overflow-wrap: anywhere; padding-top: 0.1em; }
+.log .tx { min-width: 0; overflow-wrap: break-word; }
+.log li.future { color: var(--ink-3); }
+.log li.future .t, .log li.future .kd { color: var(--ink-3); }
+.log li.now .t::before { content: "\25B8\00a0"; color: var(--accent); }
+.log li.now .tx { font-weight: 700; }
+.log-empty { font-size: var(--fs-s); color: var(--ink-3); padding: 0.5rem 0; }
+@media (max-width: 520px) { .log button { grid-template-columns: 5.4rem minmax(0, 1fr); } }
+.charts-live { display: grid; gap: 1rem; min-width: 0; }
+@media (min-width: 900px) { .charts-live { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .charts-live > .wide { grid-column: 1 / -1; } }
+details.drawer { border: 1px solid var(--rule); border-radius: 4px; background: var(--plate); }
+details.drawer > summary { cursor: pointer; padding: 0.65rem 0.85rem; font-weight: 700; font-size: var(--fs-s); }
+details.drawer > div { padding: 0 0.85rem 0.9rem; display: grid; gap: 1rem; min-width: 0; }
+.settings { display: grid; gap: 1rem; }
+@media (min-width: 900px) { .settings { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.settings h4 { font-size: var(--fs-s); margin-bottom: 0.35rem; }
+/* the value column takes at most ~45% and wraps beyond that, so a long value never squeezes its label */
+.kv { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(45%); gap: 0.15rem 0.75rem; margin: 0; font-size: var(--fs-s); }
+.kv dt { color: var(--ink-2); min-width: 0; overflow-wrap: anywhere; }
+.kv dt small { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); }
+.kv dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; overflow-wrap: anywhere; }
+
+/* ---- charts ------------------------------------------------------------ */
+.chart { margin: 0; min-width: 0; background: var(--plate); border: 1px solid var(--rule); border-radius: 4px; padding: 0.85rem 0.9rem 0.8rem; display: grid; gap: 0.55rem; position: relative; }
+.chart-head { display: flex; gap: 0.5rem 1rem; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.chart-head > div { min-width: 0; flex: 1 1 14rem; display: grid; gap: 0.2rem; }
+.chart-title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+.chart-sub { font-size: var(--fs-s); color: var(--ink-2); line-height: 1.45; }
+.chart .btn { min-height: 1.8rem; padding: 0.3rem 0.55rem; font-size: var(--fs-xs); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; list-style: none; margin: 0; padding: 0; font-size: var(--fs-xs); font-family: var(--font-mono); color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legend svg { width: 18px; height: 12px; flex: none; }
+.plot { position: relative; min-width: 0; }
+.plot svg { display: block; width: 100%; overflow: visible; }
+.plot svg:focus { outline: none; }
+.plot svg:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.plot text { font-family: var(--font-mono); font-size: 11px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+.plot text.axis-title { fill: var(--ink-2); }
+.plot text.dl { fill: var(--ink-2); font-size: 11px; paint-order: stroke; stroke: var(--plate); stroke-width: 3px; stroke-linejoin: round; }
+.plot .grid line { stroke: var(--rule); stroke-width: 1; shape-rendering: crispEdges; }
+.plot .axis line, .plot .axis path { stroke: var(--rule-2); stroke-width: 1; shape-rendering: crispEdges; }
+.plot .series path { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.plot .cross { stroke: var(--ink-3); stroke-width: 1; shape-rendering: crispEdges; }
+.plot .playhead { stroke: var(--accent); stroke-width: 2; }
+.plot .ref { stroke: var(--edge); stroke-width: 1; }
+.plot .hit { fill: transparent; cursor: crosshair; }
+svg .band { opacity: 0.16; }
+.plot .band-edge { stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.7; }
+.plot .gap-end { fill: var(--plate); stroke-width: 2; }
+.plot .empty { fill: var(--ink-3); font-family: var(--font-body); font-size: 13px; }
+.tip { position: absolute; z-index: 5; pointer-events: none; background: var(--plate); color: var(--ink); border: 1px solid var(--edge); border-radius: 4px; padding: 0.45rem 0.6rem; font-size: var(--fs-xs); line-height: 1.4; min-width: 9rem; max-width: 16rem; box-shadow: 0 2px 10px var(--shadow); }
+.tip .tip-h { font-family: var(--font-mono); color: var(--ink-3); margin-bottom: 0.2rem; }
+.tip .row { display: grid; grid-template-columns: 14px auto minmax(0, 1fr); gap: 0.4rem; align-items: center; }
+.tip .row b { font-family: var(--font-mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tip .row span { color: var(--ink-2); overflow-wrap: anywhere; }
+.tip svg { width: 14px; height: 8px; }
+.multiples { display: grid; gap: 0.75rem 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.multiples .mtitle { font-size: var(--fs-s); font-weight: 700; }
+.multiples .msub { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); }
+.chart-grid { display: grid; gap: 1rem; min-width: 0; }
+@media (min-width: 900px) { .chart-grid.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.chart-note { font-size: var(--fs-xs); color: var(--ink-3); }
+
+/* ---- tables ------------------------------------------------------------ */
+.table-wrap { overflow-x: auto; min-width: 0; max-width: 100%; }
+.table-wrap.tall { max-height: 22rem; overflow-y: auto; border: 1px solid var(--rule); border-radius: 3px; }
+table { border-collapse: collapse; width: 100%; font-size: var(--fs-s); }
+th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--ink-3); letter-spacing: 0.03em; background: var(--plate); position: sticky; top: 0; vertical-align: bottom; line-height: 1.35; }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+thead th.num { white-space: normal; min-width: 4.5rem; }
+tbody th { font-weight: 700; }
+table.measures tbody th { min-width: 9.5rem; }
+.tcap { font-size: var(--fs-s); color: var(--ink-2); margin: 0 0 0.4rem; max-width: 46rem; position: sticky; left: 0; }
+
+/* ---- chips and verdicts ------------------------------------------------ */
+.chip { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--edge); border-radius: 999px; padding: 0.16rem 0.55rem 0.16rem 0.4rem; white-space: nowrap; text-decoration: none; background: var(--plate); line-height: 1.3; }
+a.chip:hover { background: var(--plate-2); }
+.chip svg { width: 12px; height: 12px; flex: none; }
+.chip.added { border-style: dashed; }
+.verdict-key { display: flex; flex-wrap: wrap; gap: 0.4rem 0.6rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+.verdict-key li { display: inline-flex; gap: 0.45rem; align-items: center; font-size: var(--fs-s); color: var(--ink-2); }
+
+/* ---- ladder: periodic-table tiles ------------------------------------- */
+.block-h { display: flex; gap: 0.5rem 1rem; align-items: baseline; flex-wrap: wrap; }
+.block-h h3 { font-size: 1rem; }
+.tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tile { position: relative; background: var(--plate); border: 1px solid var(--edge); border-radius: 2px; padding: 0.55rem 0.65rem 0.65rem; display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 0.25rem; min-width: 0; }
+.tile .z { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tile .sym { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; line-height: 1.1; letter-spacing: -0.01em; }
+.tile .what { font-weight: 700; font-size: 0.9rem; line-height: 1.3; }
+.tile .why { font-size: var(--fs-s); color: var(--ink-2); line-height: 1.4; }
+.tile .tested { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; align-self: end; padding-top: 0.45rem; margin-top: 0.15rem; border-top: 1px dashed var(--rule-2); }
+.tile .tested-l { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); margin-right: 0.15rem; }
+.tile .tested .chip { white-space: normal; text-align: left; }
+.tile .tested[data-kind="open"] .chip { border-style: dashed; color: var(--ink-2); }
+.tile .tested + .tested { border-top: 0; padding-top: 0.2rem; margin-top: 0; }
+.tile.next { border-style: dashed; background: transparent; }
+.tile.next .sym { color: var(--ink-2); }
+@media (max-width: 719px) {
+  .tile { grid-template-columns: 2.2rem minmax(0, 1fr); grid-template-rows: none; column-gap: 0.6rem; padding: 0.6rem 0.65rem; }
+  .tile .z { grid-row: 1 / span 4; padding-top: 0.35rem; }
+  .tile .sym, .tile .what, .tile .why, .tile .tested { grid-column: 2; }
+  .tile .sym { font-size: 1.2rem; }
+}
+
+/* ---- findings ---------------------------------------------------------- */
+.findings { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.finding { display: grid; gap: 0.5rem 1.5rem; padding: 1.15rem 0 1.25rem; border-bottom: 1px solid var(--rule); scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1rem); }
+@media (min-width: 760px) { .finding { grid-template-columns: 10.5rem minmax(0, 1fr); } }
+.finding .fmeta { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; min-width: 0; }
+.finding .fref { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); }
+.finding .fbody { display: grid; gap: 0.45rem; min-width: 0; max-width: 44rem; }
+.finding .measured { font-size: 1.06rem; }
+.finding .next { font-size: var(--fs-s); color: var(--ink-2); }
+.finding .next b { color: var(--ink); }
+.finding:target { background: linear-gradient(90deg, var(--plate-2), transparent 70%); }
+
+/* ---- meshguard --------------------------------------------------------- */
+.pipeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: minmax(0, 1fr); counter-reset: stage; }
+@media (min-width: 720px) { .pipeline { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1240px) { .pipeline { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.pipeline li { counter-increment: stage; position: relative; border: 1px solid var(--edge); border-radius: 3px; background: var(--plate); padding: 0.5rem 0.65rem 0.6rem; display: grid; gap: 0.15rem; min-width: 0; }
+.pipeline li::before { content: counter(stage); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); }
+.pipeline li span { font-weight: 700; font-size: 0.92rem; line-height: 1.3; }
+.pipeline li small { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); }
+.pipeline li:not(:last-child)::after { content: ""; position: absolute; background: var(--edge); }
+@media (min-width: 1240px) { .pipeline li:not(:last-child)::after { right: -0.5rem; top: 50%; width: 0.5rem; height: 1px; } }
+@media (min-width: 720px) and (max-width: 1239px) { .pipeline li:not(:nth-child(3n))::after { right: -0.5rem; top: 50%; width: 0.5rem; height: 1px; } }
+@media (max-width: 719px) { .pipeline li:not(:last-child)::after { left: 1.1rem; bottom: -0.5rem; width: 1px; height: 0.5rem; } }
+.flag-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.flag-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.6rem; align-items: start; font-size: var(--fs-s); }
+.flag-list .chip { margin-top: 0.1rem; }
+.row-tools { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; font-size: var(--fs-s); }
+
+/* ---- learning log, built, reproduce ----------------------------------- */
+.glossary td:first-child, .glossary th:first-child { width: 22%; }
+.glossary td:nth-child(2) { width: 26%; font-weight: 700; }
+.glossary tr.added td { background: var(--plate); }
+.glossary tbody.group th { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-2); padding-top: 1.1rem; background: transparent; }
+.cols2 { display: grid; gap: 1.25rem; }
+@media (min-width: 760px) { .cols2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.ledger li { padding: 0.45rem 0; border-bottom: 1px solid var(--rule); font-size: var(--fs-s); }
+.colhead { font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-2); margin-bottom: 0.35rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.25rem 0.75rem; min-width: 0; }
+.steps li::before { content: counter(step); font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; line-height: 1.5; color: var(--ink-2); grid-row: span 2; }
+.cmd { display: flex; gap: 0.5rem; align-items: stretch; min-width: 0; }
+.cmd pre { flex: 1 1 auto; min-width: 0; margin: 0; overflow-x: auto; background: var(--plate); border: 1px solid var(--rule); border-radius: 3px; padding: 0.5rem 0.7rem; font-family: var(--font-mono); font-size: var(--fs-s); line-height: 1.4; }
+.copied { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-2); min-height: 1.2em; }
+
+.site-foot { border-top: 1px solid var(--ink); padding-block: 1.5rem 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: var(--fs-s); color: var(--ink-2); }
+.site-foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
+.site-foot .gen { flex-basis: 100%; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-3); overflow-wrap: anywhere; }
+.err { font-size: var(--fs-s); color: var(--ink-2); border: 1px dashed var(--edge); padding: 0.5rem 0.7rem; border-radius: 3px; }
+@media (forced-colors: active) { .btn[aria-pressed="true"] { outline: 2px solid; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="bar">
+    <a class="wordmark" href="#top" aria-label="BMFP, back to top">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="4.2" r="2" fill="var(--st-active)"/><circle cx="15" cy="13" r="2" fill="var(--plate)" stroke="var(--st-standby)" stroke-width="1.4"/><circle cx="5" cy="13" r="2" fill="var(--plate)" stroke="var(--st-ghost)" stroke-width="1"/></svg>
+      <span>BMFP <span class="wm-sub">design journal v1.7e</span></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <button class="btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>Sections</button>
+      <ul id="nav-list">
+        <li><a href="#cell">The cell</a></li>
+        <li><a href="#ladder">Ladder</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#meshguard">MeshGuard</a></li>
+        <li><a href="#learned">Learning log</a></li>
+        <li><a href="#built">How it was built</a></li>
+        <li><a href="#reproduce">Reproduce</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page">
+<p class="notice" id="fixture-notice" role="status" hidden></p>
+<main id="main">
+
+<!-- 1 · hero ---------------------------------------------------------------->
+<section class="sec hero" id="top" aria-labelledby="hero-h">
+  <div class="sec-margin"><div><b>Protocol specification</b>Version 1.7e. Invented by The Bucket Minister, Chennai.</div></div>
+  <div class="sec-main">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Bucket Minister Fullerene Protocol</p>
+        <h1 id="hero-h">A <span class="nw">soccer-ball</span> network, designed at 2&nbsp;AM. Now measured.</h1>
+        <p class="lede">BMFP is a peer-to-peer overlay for edge and IoT clusters, shaped like a C60 molecule. It started as a design journal written by a first-year computer science student. The journal ended by asking for a program. This site replays that program's runs and shows what it found.</p>
+        <blockquote class="quote">
+          <p>It was 2 AM. I had college the next day. I was answering a systems design quiz when I had a thought: <em>&ldquo;What if a network was shaped like a fullerene?&rdquo;</em></p>
+          <p>Then I looked at the chemistry: <em>&ldquo;Why not use resonance to rotate active nodes?&rdquo;</em> I asked. <em>&ldquo;Why not use VSEPR to push load away from hot nodes?&rdquo;</em></p>
+          <footer>The Bucket Minister, README, &ldquo;The Honest Origin Story&rdquo; (trimmed)</footer>
+        </blockquote>
+        <ul class="figure0" id="hero-counts" aria-label="The C60 cage, counted from the simulator's topology data">
+          <li><span class="n" data-k="n">&mdash;</span><span class="l">nodes on the ball</span></li>
+          <li><span class="n" data-k="links">&mdash;</span><span class="l">links between them</span></li>
+          <li><span class="n" data-k="degree">&mdash;</span><span class="l">exits at every node</span></li>
+          <li><span class="n" data-k="diameter">&mdash;</span><span class="l">hops, widest crossing</span></li>
+        </ul>
+        <p class="small muted">Counts are read from the C60 cage the simulator builds. The first three labels are the journal's Figure&nbsp;0; the widest crossing is the simulator's own count.</p>
+        <div class="cta">
+          <a class="primary" href="#cell">Watch the cell run</a>
+          <a href="#findings">Read the findings</a>
+        </div>
+      </div>
+      <figure class="plate" style="margin:0">
+        <canvas id="hero-cage" width="600" height="600" tabindex="0" role="img" aria-label="Rotating ball-and-stick model of the C60 cell. Drag, or use the arrow keys, to turn it."></canvas>
+        <div class="cage-tip" id="hero-tip" hidden></div>
+        <span class="plate-tag" id="hero-tag">C60</span>
+        <figcaption class="plate-cap">
+          <p id="hero-cap">The C60 cell, coloured by the baseline run. Drag, or use the arrow keys, to turn it.</p>
+          <ul class="legend-states" data-legend="states-full" aria-label="Node states and marks"></ul>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · the cell, live ------------------------------------------------------>
+<section class="sec" id="cell" aria-labelledby="cell-h">
+  <div class="sec-margin"><div><b>Journal Part V</b>v1.7a to v1.7e: the living layer, replayed one second at a time.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="cell-h">The cell, live</h2>
+      <p class="lede">Each scenario is one seeded run of the simulator, replayed second by second. Watch nodes change state as resonance, VSEPR and the fairness rule fire, and as nodes die and the cell rebuilds. Pick a scenario and press play.</p>
+    </div>
+    <ul class="scen-tabs" id="scen-tabs" aria-label="Scenarios"></ul>
+    <p class="scen-blurb" id="scen-blurb"></p>
+    <div class="instrument" id="instrument">
+      <figure class="plate" style="margin:0">
+        <canvas id="live-cage" width="600" height="600" tabindex="0" role="img" aria-label="Ball-and-stick model of the cell at the playhead. Arrow keys turn it."></canvas>
+        <div class="cage-tip" id="live-tip" hidden></div>
+        <span class="plate-tag" id="live-tag">&mdash;</span>
+        <figcaption class="plate-cap">
+          <ul class="legend-states" data-legend="states-full" aria-label="Node states and marks"></ul>
+        </figcaption>
+      </figure>
+      <div class="panel">
+        <div class="transport">
+          <button class="btn" id="play" type="button" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg><span id="play-label">Play</span></button>
+          <div class="seg" role="group" aria-label="Playback speed" id="speeds">
+            <button class="btn" type="button" id="speed-1" data-speed="1" aria-pressed="false">1&times;</button>
+            <button class="btn" type="button" id="speed-4" data-speed="4" aria-pressed="true">4&times;</button>
+            <button class="btn" type="button" id="speed-16" data-speed="16" aria-pressed="false">16&times;</button>
+          </div>
+          <span class="clock" id="clock" aria-live="off">t = <b id="time-now">&mdash;</b> of <span id="time-end">&mdash;</span></span>
+        </div>
+        <div class="scrub">
+          <label class="vh" for="scrub">Playhead time, in seconds</label>
+          <svg class="ticks" id="ticks" aria-hidden="true" preserveAspectRatio="none"></svg>
+          <input type="range" id="scrub" min="0" max="0" step="1" value="0">
+          <div class="scrub-labels"><span>0 s</span><span id="scrub-end">&mdash;</span></div>
+        </div>
+        <p class="keys"><kbd>Space</kbd> plays or pauses. <kbd>&larr;</kbd> <kbd>&rarr;</kbd> step one second, with <kbd>Shift</kbd> ten. On the model, arrow keys turn it. Ticks above the slider mark events: a tall tick with a red triangle is a failure, a tall tick with a hollow dot a recovery.</p>
+        <ul class="flags" id="flags" aria-label="Nodes in each state at the playhead"></ul>
+        <div class="stat">
+          <span class="v" id="ratio-now">&mdash;</span>
+          <span class="k">Deliverable messages delivered, last 5&nbsp;s</span>
+          <span class="d">Deliverable means the device was awake and alive when the message was sent.</span>
+        </div>
+        <div>
+          <h3 class="eyebrow" style="margin-bottom:0.4rem">Events near the playhead</h3>
+          <ol class="log" id="log"></ol>
+          <p class="keys" id="log-note"></p>
+        </div>
+      </div>
+    </div>
+    <div class="charts-live" id="charts-live"></div>
+    <details class="drawer" id="settings-drawer">
+      <summary>Run settings for this scenario</summary>
+      <div>
+        <p class="small">Values come from the scenario's config in the export. The tags say where each value comes from: a figure written in the journal, or an assumption the simulator had to make.</p>
+        <div class="settings" id="settings"></div>
+      </div>
+    </details>
+    <details class="drawer" id="summary-drawer">
+      <summary>Run summary, every key in the export</summary>
+      <div><div class="table-wrap" id="summary"></div></div>
+    </details>
+  </div>
+</section>
+
+<!-- 3 · ladder -------------------------------------------------------------->
+<section class="sec" id="ladder" aria-labelledby="ladder-h">
+  <div class="sec-margin"><div><b>Journal Part VI</b>The full ladder. What and why are in the author's words, from the README.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="ladder-h">The ladder, v1.0 to v1.7e</h2>
+      <p class="lede">Each version adds one thing and names the problem it solves. Where the simulator tested a version, its tile links to the finding and shows the verdict. Where the problem is outside what the simulator models, the tile says so: open, not simulated.</p>
+      <blockquote class="quote"><p>Every version names the problem it solves. That is how real change logs read, and almost nobody does it unprompted.</p><footer>Claude's design review, Journal Part VII, &ldquo;What holds up&rdquo;</footer></blockquote>
+      <p class="small muted">Numbers inside the tiles are the journal's design targets, quoted as written. They are not measurements.</p>
+    </div>
+    <div class="block-h"><h3>The fullerene layer</h3><span class="eyebrow">v1.0 to v1.6 · routes, locks, shards, tokens</span></div>
+    <ol class="tiles" id="tiles-a">
+      <li class="tile" data-v="v1.0" data-match="topolog|cut the ball|partition|figure 0"><span class="z">1</span><span class="sym">v1.0</span><span class="what">Fullerene topology (60 nodes, 3 exits)</span><span class="why">No single point of failure</span></li>
+      <li class="tile" data-v="v1.1"><span class="z">2</span><span class="sym">v1.1</span><span class="what">Encryption + delivery receipts</span><span class="why">Stop eavesdropping and silent loss</span></li>
+      <li class="tile" data-v="v1.2" data-match="hell"><span class="z">3</span><span class="sym">v1.2</span><span class="what">Chill/Hell mode + sequence numbers</span><span class="why">Fix congestion and out-of-order packets</span></li>
+      <li class="tile" data-v="v1.3" data-match="offline"><span class="z">4</span><span class="sym">v1.3</span><span class="what">Retransmission, rate limiting, sleep/wake</span><span class="why">Save battery, stop spam</span></li>
+      <li class="tile" data-v="v1.4"><span class="z">5</span><span class="sym">v1.4</span><span class="what">Path rotation + dead-hours mode</span><span class="why">Hide patterns, save more power</span></li>
+      <li class="tile" data-v="v1.5" data-match="gateway"><span class="z">6</span><span class="sym">v1.5</span><span class="what">Groups, sharding, multicast, gateways</span><span class="why">Scale past 500 users</span></li>
+      <li class="tile" data-v="v1.6" data-match="rekey|group token|mls"><span class="z">7</span><span class="sym">v1.6</span><span class="what">Group tokens + weekly rotation</span><span class="why">Zero-trust security</span></li>
+    </ol>
+    <div class="block-h"><h3>The living layer</h3><span class="eyebrow">v1.7 to v1.7e · cells that wake, rotate, repel and regrow</span></div>
+    <ol class="tiles" id="tiles-b" start="8">
+      <li class="tile" data-v="v1.7" data-match="c20"><span class="z">8</span><span class="sym">v1.7</span><span class="what">Cells (C10&ndash;C60), hibernation, graphite mode</span><span class="why">Make it alive</span></li>
+      <li class="tile" data-v="v1.7a" data-match="wak|push"><span class="z">9</span><span class="sym">v1.7a</span><span class="what">Flash wake</span><span class="why">Grow under load before choking</span></li>
+      <li class="tile" data-v="v1.7b" data-match="resonance"><span class="z">10</span><span class="sym">v1.7b</span><span class="what">Resonance (rotating ACTIVE nodes)</span><span class="why">No fixed targets, no burnout</span></li>
+      <li class="tile" data-v="v1.7c" data-match="captain"><span class="z">11</span><span class="sym">v1.7c</span><span class="what">State flags + captains (gossip-based)</span><span class="why">Fairness, no free-riders</span></li>
+      <li class="tile" data-v="v1.7d" data-match="vsepr"><span class="z">12</span><span class="sym">v1.7d</span><span class="what">VSEPR load repulsion</span><span class="why">Hot nodes demoted, cold nodes promoted</span></li>
+      <li class="tile" data-v="v1.7e" data-match="rto|recover|immortal"><span class="z">13</span><span class="sym">v1.7e</span><span class="what">Mitosis, meiosis, checkpoints (immortality)</span><span class="why">Cells die; the organism regenerates</span></li>
+      <li class="tile next"><span class="z">next</span><span class="sym">v1.8</span><span class="what">Not a document. A program.</span><span class="why">&ldquo;The next version of this document should not be v1.8. It should be a program.&rdquo; Part IX. <a href="#cell">That program is above.</a></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4 · findings ------------------------------------------------------------>
+<section class="sec" id="findings" aria-labelledby="findings-h">
+  <div class="sec-margin"><div><b>Journal Part VII</b>Open problems, plus the topology claim from Figure&nbsp;0.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="findings-h">What the simulator found</h2>
+      <blockquote class="quote"><p>Every number in Parts I to VI is a design target that was written down, not a result that was measured.</p><footer>Journal, Part 0, &ldquo;Standing disclaimer&rdquo;</footer></blockquote>
+      <p class="lede">The simulator takes some of those targets as inputs and measures what follows. Every number in the sentences below is formatted from the experiment data by <code>bmfp experiments</code>; the wording around the numbers is written into that code. Negative results are reported as plainly as positive ones.</p>
+      <p class="small">A verdict says whether the simulator agrees with the journal's statement of the problem.</p>
+      <ul class="verdict-key" id="verdict-key" aria-label="Verdict key"></ul>
+    </div>
+    <ol class="findings" id="findings-list"></ol>
+    <div class="subhead"><h3>The experiments</h3><p class="small" id="exp-seeds">Each chart aggregates several seeds and shows the mean, with the range from the lowest to the highest seed.</p></div>
+    <div class="chart-grid" id="exp-charts"></div>
+  </div>
+</section>
+
+<!-- 5 · meshguard ----------------------------------------------------------->
+<section class="sec" id="meshguard" aria-labelledby="mg-h">
+  <div class="sec-margin"><div><b>Companion project</b><code>meshguard/</code> in this repository. Simulated sensors only.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="mg-h">MeshGuard</h2>
+      <p class="lede">BMFP assumes a node either works or is dead. Real sensors also drift, stick and go quiet while still answering. MeshGuard asks how you notice that without labelled data. <span id="mg-nrules">Several</span> hand-written rules vote on every reading. A Dawid&ndash;Skene label model learns how far to trust each rule. Rules that go bad in one zone are quarantined, the scores are calibrated, and the model may abstain when unsure. It runs on a simulated ring of sensors; nothing here has met real hardware.</p>
+    </div>
+    <ol class="pipeline" id="mg-pipeline" aria-label="MeshGuard pipeline, in order"></ol>
+    <div id="mg-results"></div>
+    <div class="chart-grid two" id="mg-charts"></div>
+    <div id="mg-stream"></div>
+    <div id="mg-lf"></div>
+    <div class="subhead">
+      <h3>Negative and mixed results</h3>
+      <p class="small">The pipeline flags every comparison that did not improve. They are listed as written by the code.</p>
+    </div>
+    <div class="row-tools"><label for="mg-seed">Seed</label><select id="mg-seed"></select></div>
+    <ul class="flag-list" id="mg-flags"></ul>
+  </div>
+</section>
+
+<!-- 6 · learning log -------------------------------------------------------->
+<section class="sec" id="learned" aria-labelledby="learned-h">
+  <div class="sec-margin"><div><b>Journal Part VIII</b>My words, and the real ones. Rows added by this build are marked.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="learned-h">Learning log</h2>
+      <blockquote class="quote"><p>Most of the protocol turned out to be re-inventions. That is the useful part: each invented word maps onto a real one with decades of work behind it, and the mapping is the fastest route into that work.</p><footer>Journal Part VIII, &ldquo;What I Learned&rdquo;, written by Claude (Anthropic) per the README</footer></blockquote>
+    </div>
+    <div class="table-wrap">
+      <table class="glossary">
+        <thead><tr><th scope="col">My word</th><th scope="col">The real name</th><th scope="col">What I now know</th></tr></thead>
+        <tbody class="group"><tr><th colspan="3" scope="colgroup">The networking half · from the journal</th></tr></tbody>
+        <tbody>
+          <tr><td>Biscuit</td><td>Packet</td><td>The unit that gets routed, dropped, retried and reordered independently of the message.</td></tr>
+          <tr><td>Checkpoint</td><td>Router, or hop</td><td>Every hop is a place where a packet can be delayed, dropped or observed.</td></tr>
+          <tr><td>Locked box</td><td>End-to-end encryption</td><td>Only endpoints hold keys. Intermediate nodes route without reading.</td></tr>
+          <tr><td>Got it</td><td>Acknowledgement</td><td>The basis of reliable delivery. No ack means resend, which means duplicates, which means the receiver must dedupe.</td></tr>
+          <tr><td>Numbering biscuits</td><td>Sequence numbers</td><td>Ordering and reassembly. TCP does this, and it is why multipath is harder than it looks.</td></tr>
+          <tr><td>Chill and hell mode</td><td>Adaptive and multipath routing</td><td>Switching routing strategy on load is real. Multipath costs either bandwidth or head-of-line blocking.</td></tr>
+          <tr><td>Resend if lost</td><td>ARQ, automatic repeat request</td><td>Stop-and-wait, go-back-N and selective repeat are the standard families.</td></tr>
+          <tr><td>Anti-spam limit</td><td>Rate limiting, token bucket</td><td>A well-defined algorithm with a burst size and a refill rate, not just a cap.</td></tr>
+          <tr><td>Path rotation</td><td>Traffic analysis resistance</td><td>Changing paths hides patterns from an observer watching one link. Tor exists for this.</td></tr>
+          <tr><td>One send, fifty deliveries</td><td>Application-layer multicast</td><td>The tree is built in the overlay because IP multicast is not deployed on the open internet.</td></tr>
+          <tr><td>Splitting a big group</td><td>Sharding, or partitioning</td><td>The hard part is not splitting. It is routing between the parts and keeping labels straight.</td></tr>
+          <tr><td>Gate pass</td><td>Group key, or access token</td><td>Shared-secret schemes have a removal problem. MLS solves it with a key tree.</td></tr>
+        </tbody>
+        <tbody class="group"><tr><th colspan="3" scope="colgroup">The systems half · from the journal</th></tr></tbody>
+        <tbody>
+          <tr><td>Ghost, active, standby</td><td>Membership states</td><td>Keeping every node agreeing on who is in which state is the actual problem, and it is called membership.</td></tr>
+          <tr><td>Captain</td><td>Leader, or coordinator</td><td>Electing one is a solved but expensive problem. Raft is the standard answer, and it assumes stable membership.</td></tr>
+          <tr><td>Cell hibernate</td><td>Scale to zero</td><td>Serverless platforms do exactly this. The interesting number is the cold start, not the saving.</td></tr>
+          <tr><td>Resonance</td><td>Role rotation</td><td>Rotating a role for fairness and unpredictability is real. Delocalisation is a good picture, not a mechanism.</td></tr>
+          <tr><td>VSEPR repulsion</td><td>Feedback control, load balancing</td><td>Any threshold-driven loop needs hysteresis and damping, or it oscillates. Control theory has the vocabulary.</td></tr>
+          <tr><td>Stem nodes and DNA</td><td>Replicas and snapshots</td><td>A checkpoint written to several places is a snapshot with a replication factor.</td></tr>
+          <tr><td>Death detection</td><td>Failure detection</td><td>SWIM is the readable one: gossip plus indirect probes. Detection time trades against false positives.</td></tr>
+          <tr><td>Mitosis and meiosis</td><td>Partial and total failure recovery</td><td>Different failure modes get different recovery paths. Naming them separately was the right instinct.</td></tr>
+          <tr><td>Regeneration under 500 ms</td><td>RTO and RPO</td><td>RTO runs from the failure instant, not from when recovery starts. RPO is how much data the last checkpoint can lose.</td></tr>
+          <tr><td>Atomic state map</td><td>The CAP tradeoff</td><td>Under a partition you get consistency or availability. Gossip chose availability, and that choice has to be stated.</td></tr>
+          <tr><td>Graphite mode</td><td>Hierarchical overlay, DHT</td><td>Routing between cells needs a lookup scheme. Kademlia is the one to read.</td></tr>
+          <tr><td>The whole thing</td><td>An overlay network</td><td>Running on top of IP rather than replacing it is what makes any of this testable on a laptop.</td></tr>
+        </tbody>
+        <tbody class="group"><tr><th colspan="3" scope="colgroup">Added by this build · from writing the simulator</th></tr></tbody>
+        <tbody>
+          <tr class="added"><td>Valid ACTIVE set <span class="chip added">added</span></td><td>Connected dominating set</td><td>Every node is ACTIVE or next to an ACTIVE node, and the ACTIVE nodes stay connected to each other. Ad-hoc networking calls this a virtual backbone. The simulator checks it after every state change.</td></tr>
+          <tr class="added"><td>The simulator loop <span class="chip added">added</span></td><td>Discrete-event simulation</td><td>Time jumps from one scheduled event to the next in a priority queue. Ties break by insertion order, so the same seed always replays the same run.</td></tr>
+          <tr class="added"><td>Damping VSEPR <span class="chip added">added</span></td><td>Hysteresis and a cooldown</td><td>A node that just changed state may not change back for a few cycles, and only a few nodes may change per cycle. This is the fix the review asked for.</td></tr>
+          <tr class="added"><td>A relay's capacity <span class="chip added">added</span></td><td>Token bucket</td><td>Each relay refills tokens at a fixed rate up to a burst size. A hop that finds no token is a congestion drop.</td></tr>
+          <tr class="added"><td>Hell mode, two readings <span class="chip added">added</span></td><td>Duplication versus striping</td><td>Duplication sends a full copy down each disjoint path and needs one to arrive. Striping splits the message across paths and needs every piece.</td></tr>
+          <tr class="added"><td>No single failure cuts the ball <span class="chip added">added</span></td><td>Vertex connectivity</td><td>The fewest nodes whose loss disconnects the graph. Disjoint paths and minimum cuts are two views of the same number.</td></tr>
+          <tr class="added"><td>Captain election <span class="chip added">added</span></td><td>Deterministic rotation over a membership view</td><td>Every node that sees the same view computes the same captains. A split view would elect two sets, which the simulator does not model.</td></tr>
+          <tr class="added"><td>The moment before detection <span class="chip added">added</span></td><td>Stale view</td><td>Between a failure and its detection, senders route on a membership view that is out of date. Those drops have their own name in the data: <code>stale_view</code>.</td></tr>
+          <tr class="added"><td>&ldquo;More than half&rdquo; <span class="chip added">added</span></td><td>A strict threshold</td><td>Losing exactly half does not raise the death event. A boundary written in words needs a test at the boundary.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · how this was built -------------------------------------------------->
+<section class="sec" id="built" aria-labelledby="built-h">
+  <div class="sec-margin"><div><b>Journal Part 0</b>And the README's &ldquo;Honest AI Breakdown&rdquo;.</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="built-h">How this was built</h2>
+      <blockquote class="quote"><p>I am not pretending I wrote every sentence. I wrote every idea. The AI typed it up, questioned me, and made it look professional.</p><footer>The Bucket Minister, README</footer></blockquote>
+      <p>The journal was written in conversation with language models: answer first, have the answer questioned, then patch what broke. The author kept a record of who contributed what.</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:0.6rem">Who wrote what, in the journal</h3>
+      <div class="cols2">
+        <div><p class="colhead">Mine</p><ul class="ledger">
+          <li>The fullerene idea</li><li>Two traffic states</li><li>Sizing a cell to its population</li><li>Rotating who is awake, for fairness</li><li>The chemistry: fullerene, benzene, VSEPR, graphite</li><li>Deciding what problem each version solved</li>
+        </ul></div>
+        <div><p class="colhead">From the models</p><ul class="ledger">
+          <li>The word topology, and the fact that a 3-regular cage has no cut vertex</li><li>Multicast trees, sequence numbers, and the phrase adaptive routing</li><li>Sharding, hibernation as a named pattern, gossip membership</li><li>Raft, then SWIM, and the vocabulary of consensus</li><li>RTO, RPO, CAP, and the structure of a spec document</li><li>Almost every specific number in this document</li>
+        </ul></div>
+      </div>
+      <p class="attrib" style="margin-top:0.5rem">Journal, Part 0, &ldquo;Who wrote what&rdquo;</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:0.6rem">The tools, in the author's words</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th scope="col">Tool</th><th scope="col">Role</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Meta AI</th><td>My primary listener, questioner, and scribe. I gave it raw ideas (fullerene, resonance, VSEPR, states, immortality). It asked skeptical questions, formatted the document, and typed everything neatly.</td></tr>
+          <tr><th scope="row">Claude (Anthropic)</th><td>Provided the formal design review, glossary, and critical analysis (Parts VII&ndash;VIII of the PDF). It told me what held up and what broke.</td></tr>
+          <tr><th scope="row">DeepSeek</th><td>Helped me write this specific README and gave me the courage to be honest about the process.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="attrib" style="margin-top:0.5rem">README, &ldquo;The Honest AI Breakdown&rdquo;</p>
+    </div>
+    <div class="cols2">
+      <div><p class="colhead">I own</p><ul class="ledger">
+        <li>The entire v1&rarr;v7 logical ladder.</li><li>All chemistry/biology mappings (fullerene, resonance, VSEPR, mitosis, meiosis, graphite).</li><li>The three-state node model (ACTIVE/STANDBY/GHOST).</li><li>The load-repulsion rule (2&times; average &rarr; demotion).</li><li>The self-review and identified limitations.</li>
+      </ul></div>
+      <div><p class="colhead">AI contributed</p><ul class="ledger">
+        <li>Technical vocabulary (SWIM, Raft, CAP, RTO/RPO).</li><li>Formatting, grammar, and diagrams.</li><li>Socratic questioning (poking holes in my ideas so I could patch them).</li><li>The 2 AM joke that turned Chemistry into Biology.</li>
+      </ul></div>
+    </div>
+    <div class="prose">
+      <h3>This build</h3>
+      <p>The simulator in <code>bmfp/</code>, MeshGuard in <code>meshguard/</code> and this site were written with Claude Code (Anthropic), from the author's design and direction. The protocol, its ladder, its chemistry and the questions the simulator asks are the author's. Where the journal was ambiguous, the simulator had to choose; its <code>SPEC.md</code> marks each of those choices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · reproduce ----------------------------------------------------------->
+<section class="sec" id="reproduce" aria-labelledby="repro-h">
+  <div class="sec-margin"><div><b>Journal Part IX</b>&ldquo;It should be a program.&rdquo;</div></div>
+  <div class="sec-main">
+    <div class="prose">
+      <h2 id="repro-h">Reproduce every number</h2>
+      <p class="lede">Every measured number on this page is read from two data files, and both files are written by commands in this repository. The page's own text quotes only the journal's design targets (on the ladder) and the definitions of the measures. Run the commands yourself, from the repository root.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li><span>Install both packages.</span><div class="cmd"><pre><code>pip install -e bmfp -e meshguard</code></pre><button class="btn copy" type="button" id="copy-1">Copy</button></div></li>
+      <li><span>Run the simulator's experiments. They write tables, plots and findings to <code>reports/</code>.</span><div class="cmd"><pre><code>bmfp experiments --out reports/</code></pre><button class="btn copy" type="button" id="copy-2">Copy</button></div></li>
+      <li><span>Export the simulator data this site reads.</span><div class="cmd"><pre><code>bmfp export-web --out docs/data</code></pre><button class="btn copy" type="button" id="copy-3">Copy</button></div></li>
+      <li><span>Export the MeshGuard results.</span><div class="cmd"><pre><code>meshguard export-web --out docs/data</code></pre><button class="btn copy" type="button" id="copy-4">Copy</button></div></li>
+      <li><span>Serve the site, then open <code>http://localhost:8000</code>.</span><div class="cmd"><pre><code>python -m http.server -d docs 8000</code></pre><button class="btn copy" type="button" id="copy-5">Copy</button></div></li>
+    </ol>
+    <p class="copied" id="copied" role="status"></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <span>BMFP Design Journal</span>
+  <ul>
+    <li><a href="https://github.com/LuisMckellen/BMFP-DESIGN-JOURNAL" target="_blank" rel="noopener">Repository on GitHub</a></li>
+    <li><a href="https://github.com/LuisMckellen/BMFP-DESIGN-JOURNAL/blob/main/BMFP-Design-Journal-v1.7e.pdf" target="_blank" rel="noopener">The journal (PDF)</a></li>
+    <li><a href="https://github.com/LuisMckellen/BMFP-DESIGN-JOURNAL/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a></li>
+  </ul>
+  <p class="gen" id="generators"></p>
+</footer>
+</div>
+
+<script src="data/bmfp-data.js"></script>
+<script src="data/meshguard-data.js"></script>
+<script src="cage.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

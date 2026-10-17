@@ -1,0 +1,128 @@
+[
+ {
+  "id": "topology-cut",
+  "problem": "No single failed checkpoint can cut the ball in half",
+  "kind": "claim",
+  "journal_ref": "Part I \u00b7 Figure 0",
+  "verdict": "confirmed",
+  "measured": "Removing any 1 or 2 nodes never disconnected the survivors in C12, C20, C24, C60 (exhaustive); the minimum vertex cut is 3, so 3 failures can isolate a node: 0.18% of 3-node and about 3.6% (Monte Carlo) of 6-node removals split C60.",
+  "next_step": "Quote the guarantee as 'survives any 2 node failures' and say what happens to a split cell (whose view wins)."
+ },
+ {
+  "id": "valid-active-sets",
+  "problem": "Three valid ACTIVE sets of 4 in a 12-node cell",
+  "kind": "claim",
+  "journal_ref": "v1.7b \u00b7 Figure 6",
+  "verdict": "refuted",
+  "measured": "Formalising 'valid ACTIVE set' as a connected dominating set (only ACTIVE nodes relay, every node one hop from one): on the 12-node ring Figure 6 draws, its 4 ACTIVE nodes (every third) dominate the ring but are not connected, and the smallest valid set has 10 nodes (domination alone needs 4). On C12, the 3-regular 12-node cell this simulator assumes (truncated tetrahedron), it has 6 nodes (exact search), and any 3-regular cell needs at least (n-2)/2: 29 of 60 in C60. The configured active_fraction 35% is below that floor, so the greedy builder starts the cell at 32 nodes (53.3% ACTIVE), and a 30-node valid set containing the three stems exists (randomised search).",
+  "next_step": "Figure 6's sets dominate the ring but cannot relay: require the ACTIVE nodes to be connected (or let STANDBY nodes relay), then re-derive the battery claim from the share that must stay awake (at least half of a cubic cell)."
+ },
+ {
+  "id": "hell-ambiguity",
+  "problem": "Hell mode is ambiguous",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems (v1.2)",
+  "verdict": "confirmed",
+  "measured": "In the living cell at 20 msg/s and 5% per-hop loss: duplicating costs 12.09 transmissions per delivered message and delivers 95.7%, striping 11.96 and 90.4%, chill 9.82 and 95.4%. Naive VSEPR resizes the backbone to each mode's load (ACTIVE averaged 69% / 70% / 72% for chill / duplicate / stripe), so those figures compare different backbones; on a frozen backbone (VSEPR and resonance off, ACTIVE 53% for every mode) the same load gives: duplicating costs 11.09 transmissions per delivered message and delivers 95.4%, striping 11.11 and 93.2%, chill 10.07 and 95.2%. Only 1.23 node-disjoint relay paths exist per message in the living cell (the ACTIVE backbone is nearly a tree), so 'all paths' rarely means 3. At 80 msg/s on the frozen backbone congestion drops per run were chill 180, duplicate 382, stripe 269. On the static v1.2 fullerene (extension: every node relays, about 2.99 paths) the readings split further: duplicating costs 17.26 transmissions per delivered message and delivers 100.0%, striping 15.52 and 74.3%, chill 5.55 and 98.6%.",
+  "next_step": "Pick one reading (duplicate buys loss tolerance with bandwidth; stripe saves bandwidth but needs every path) and write its cost into the spec."
+ },
+ {
+  "id": "vsepr-oscillation",
+  "problem": "VSEPR will oscillate",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems (v1.7d)",
+  "verdict": "confirmed",
+  "measured": "Naive VSEPR (the v1.7d rule, with 'cell average' read as the mean over ACTIVE relays: a formalisation) made 14.3 ACTIVE changes/min and 114.4 VSEPR flaps per 600 s run (a node reversed within 2 cycles), grew ACTIVE from 53% to 92% and cut GHOST time to 9.0%. Read literally, with the average over every node of the cell (sleeping ones included), it made 25.3 changes/min and 174.4 flaps. The rates rest on the assumed hotspot (30% of traffic to one node): with none, the naive rule made 4.1 changes/min and 29.0 flaps at 20 msg/s; it flapped more than the damped rule in 6 of 6 sensitivity settings (hotspot_fraction 0\u20130.3 \u00d7 20\u201340 msg/s). ACTIVE grows because the cold nodes promoted for a demoted relay rarely restore the backbone, so CDS repair promotes more, and nothing ever shrinks the set: with one promotion per demotion the rule itself nets zero, yet repair added 21.4 nodes per run and ACTIVE ended at 89%; with none, repair alone replaced the demoted relays (33.6 promoted for 32.2 demoted) and ACTIVE ended at 56%; with the journal's 2, at 92%. Damped: 0.6 changes/min and 1.0 VSEPR flaps, because it barely acts: of 31.8 candidates per run the cooldown skipped 5.8, and for 22.0 no one-for-one swap with any non-ACTIVE node keeps a valid backbone, so it demoted 3.0. Its low flap count is inactivity, not damping. Under it 14.7% of messages go to sleeping devices against 7.6% under naive, and resonance alone still makes 104.6 flaps per 600 s run (VSEPR off: 100.6).",
+  "next_step": "Give damping a feasible move set before judging it (a 2-for-1 swap, or STANDBY nodes that relay), check every demotion against the backbone, then test the gaming case (flood a node to force it out)."
+ },
+ {
+  "id": "vsepr-flattening",
+  "problem": "VSEPR flattens load: hotspots self-cancel",
+  "kind": "claim",
+  "journal_ref": "v1.7d \u00b7 EFFECT",
+  "verdict": "refuted",
+  "measured": "Per 30 s cycle the busiest relay's load over the mean relay load (1.0 = flat) was 3.13 under naive VSEPR against 2.15 without it: load got less even, not flatter. The busiest relay did carry 5.4 msg/s against 8.7 (38% lower), but the ACTIVE set also grew from 53% to 86% of the cell, and the no-VSEPR peak spread over that many relays is 5.4 msg/s. At an equal ACTIVE set (53%) the damped rule gave peak 8.7 msg/s (unchanged) and ratio 2.14 after 3.0 demotions per run, so whether a rotation rule can balance load at all is not shown. With no hotspot (an assumption: the default sends 30% of traffic to one node) the naive ratio was 1.97 against 2.03; naive was at least 5% flatter than no VSEPR in 1 of 6 sensitivity settings (hotspot_fraction 0\u20130.3 \u00d7 20\u201340 msg/s).",
+  "next_step": "Judge any balancing rule at a fixed ACTIVE count (adding relays lowers the peak by itself), and find where the peak sits before choosing what to rotate."
+ },
+ {
+  "id": "resonance-cost",
+  "problem": "Resonance flaps and lengthens paths",
+  "kind": "problem",
+  "journal_ref": "v1.7b \u00b7 Resonance",
+  "verdict": "confirmed",
+  "measured": "With VSEPR off (so the backbone keeps its size), resonance at the assumed 10 s period and 2 swaps per round (the journal says 'continuously') made 51.3 flaps per 300 s run (23.9 ACTIVE changes/min) against 0.0 without it, and with it the mean path grew from 7.76 to 9.31 hops at 20 msg/s. At 80 msg/s congestion drops went from 180 to 1323 per run and the deliverable ratio from 99.1% to 93.6%. The same resonance runs inside every VSEPR comparison: the damped and VSEPR-off cells of E2 make 104.6 and 100.6 flaps per 600 s run with almost no VSEPR moves.",
+  "next_step": "Choose the period from a flap budget and only swap a relay out for one that keeps paths as short; then measure whether rotation spreads wear at all."
+ },
+ {
+  "id": "captain-election",
+  "problem": "Captains are not elected yet",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems (v1.7c)",
+  "verdict": "partly",
+  "measured": "Rule written and exercised: term k elects the 3 believed-alive non-GHOST nodes with the smallest (id - 3k) mod n, re-electing as soon as a captain's death is detected (1.0 / 1.0 / 2.0 re-elections per run for kill50/kill60/kill100). A captain job runs only while some captain is truly alive and awake: 1.0 VSEPR cycles skipped per kill100 run; the kill at t = 120 s shares an instant with a VSEPR tick, which runs just after it. Split-brain is not modelled: the view stays global even when the survivors are physically split (kill50: split for 20.0 s per run).",
+  "next_step": "Define what each side of a split does, then simulate a partition."
+ },
+ {
+  "id": "rto-arithmetic",
+  "problem": "RTO is detection plus rebuild, not rebuild alone",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems: \u201cRTO arithmetic\u201d (v1.7e)",
+  "verdict": "confirmed",
+  "measured": "Measured from the failure instant, total death (meiosis) served again after 4.59 (4.53\u20134.66) s (first delivery 4.59 s), in line with the formula's 4.5 s, and partial death (36 of 60, mitosis) after 4.54 (4.52\u20134.56) s, in line with its 4.5 s: RTO is detection plus rebuild, not the rebuild alone. RPO 1.2\u20137.1 s. Detection (3 s) and rebuild (1.5 s) are inputs from the journal, so this confirms the arithmetic by construction, not the timings. That holds while the rebuilt backbone has spare capacity, at the assumed 20 msg/s against 40 msg/s per relay (both assumptions; only their ratio matters): at a load ratio of 2 (20/10 and 80/40) partial death came back after 4.6\u201363.5 s and total death after 4.5\u201329.6 s, with 43\u20132425 congestion drops per partial-death run against 0. Mitosis refills the empty slots as STANDBY, so the rebuilt backbone is only what CDS repair promotes.",
+  "next_step": "Quote RTO from the failure; measure detection on a real gossip implementation instead of assuming 3 s, and size relays for the rebuilt backbone, not the healthy one."
+ },
+ {
+  "id": "death-threshold",
+  "problem": "Killing exactly half: 'more than half' never fires",
+  "kind": "problem",
+  "journal_ref": "v1.7e \u00b7 DEATH rule vs Figure 9",
+  "verdict": "confirmed",
+  "measured": "Killing 30 of 60 never raised CELL_DEATH_EVENT, so no mitosis ran: the deliverable ratio fell to 13% and service came back after 23.0 (22.7\u201323.1) s (at a load ratio of 2: 23.0\u201385.4 s), once the empty slots were refilled (23.0 s: detection plus rejoin_delay = 20 s, an assumption), against 4.5 (4.5\u20134.6) s when 36 died and mitosis ran. Until the rejoin the believed survivors were split into separate parts (20.0 s per run), so no single backbone could exist.",
+  "next_step": "Trigger mitosis on loss of backbone connectivity (or 'at least half'), not on a strict head count."
+ },
+ {
+  "id": "offline-delivery",
+  "problem": "Messages to sleeping devices are lost",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems: \u201cOffline delivery\u201d",
+  "verdict": "confirmed",
+  "measured": "Nothing stores and forwards, so a message to a device the cell believes asleep (GHOST) is dropped unless a resend finds it awake: in the default cell 7.6% of messages went to a sleeping device, and a resend that found the device awake delivered 1.1% of those. The share follows the size of the sleeping pool: 7.6% under naive VSEPR, which keeps 86% of the cell ACTIVE, 14.7% with the damped rule and 15.0% with VSEPR off; with no hotspot (an assumption) 7.4% / 15.5% / 15.2% (naive / damped / off). active_fraction 0.2/0.35/0.5 gave 7.6% / 7.6% / 7.6%: the cell starts at 53% / 53% / 53% ACTIVE either way, because the greedy CDS builder (32 nodes; a 30-node valid set exists), not the setting, decides. Changing the sleeping pool instead (standby_fraction 0/0.3/0.6/1 of the non-ACTIVE nodes) gave 7.8% / 7.6% / 4.9% / 3.1%. The store-and-forward design itself is not simulated.",
+  "next_step": "Decide who stores and forwards (read Briar and Scuttlebutt); a mailbox on the GHOST node's ACTIVE neighbours is the smallest experiment."
+ },
+ {
+  "id": "gateway-server",
+  "problem": "The gateway is a server",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems",
+  "verdict": "not simulated",
+  "measured": "The gateway is modelled as an external store that never fails (it holds checkpoints and runs meiosis), so total-death recovery depends on it by construction. Removing it is not simulated.",
+  "next_step": "Name it infrastructure, or move its jobs to the stems one at a time."
+ },
+ {
+  "id": "push-wake",
+  "problem": "Waking a phone needs push",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems (v1.7a)",
+  "verdict": "not simulated",
+  "measured": "GHOST nodes change state the instant a captain decides; no APNs/FCM wake latency is modelled, so the journal's 50 ms flash-wake target is untested here.",
+  "next_step": "Measure real wake latency on one phone, then requote flash wake."
+ },
+ {
+  "id": "group-rekeying",
+  "problem": "Group token rekeying",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems (v1.6)",
+  "verdict": "not simulated",
+  "measured": "No security layer is simulated: tokens, weekly rotation and MLS are out of scope.",
+  "next_step": "Read MLS (RFC 9420) and model member removal cost."
+ },
+ {
+  "id": "c20-count",
+  "problem": "A full C20 holds 20 devices, not 30 users",
+  "kind": "problem",
+  "journal_ref": "Part VII \u00b7 Open problems: \u201cWhat the number in C20 counts\u201d (v1.7, Figure 3)",
+  "verdict": "confirmed",
+  "measured": "Built from coordinates, C20 has 20 nodes, 30 links, 12 faces and diameter 5. The simulator counts nodes, so a full C20 holds 20 devices and the journal's 11 to 30 user band does not fit.",
+  "next_step": "Restate the bands as node counts (C20 = 11 to 20 users)."
+ }
+]

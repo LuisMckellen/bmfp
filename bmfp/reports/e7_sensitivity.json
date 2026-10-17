@@ -1,0 +1,1774 @@
+{
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "duration": 600.0,
+ "vsepr": {
+  "seeds": [
+   1,
+   2,
+   3
+  ],
+  "duration": 600.0,
+  "rows": [
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.0,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 4.066667,
+     "min": 3.7,
+     "max": 4.3,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 29.0,
+     "min": 26.0,
+     "max": 31.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 142.0,
+     "min": 136.0,
+     "max": 148.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 11.666667,
+     "min": 10.0,
+     "max": 13.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.740833,
+     "min": 0.731667,
+     "max": 0.755833,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.966711,
+     "min": 1.934523,
+     "max": 1.985721,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 4.583626,
+     "min": 4.417544,
+     "max": 4.77193,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.074348,
+     "min": 0.058016,
+     "max": 0.088799,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.0,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 4.333333,
+     "min": 3.3,
+     "max": 4.9,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 24.666667,
+     "min": 19.0,
+     "max": 30.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 138.0,
+     "min": 117.0,
+     "max": 151.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 12.666667,
+     "min": 9.0,
+     "max": 15.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.734722,
+     "min": 0.664167,
+     "max": 0.784167,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.924925,
+     "min": 1.878707,
+     "max": 1.991824,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 9.469591,
+     "min": 8.022807,
+     "max": 11.710526,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.078168,
+     "min": 0.072166,
+     "max": 0.084515,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.15,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 5.9,
+     "min": 5.5,
+     "max": 6.7,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 37.333333,
+     "min": 36.0,
+     "max": 39.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 163.666667,
+     "min": 155.0,
+     "max": 168.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 17.666667,
+     "min": 16.0,
+     "max": 21.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.820278,
+     "min": 0.801667,
+     "max": 0.846667,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.953663,
+     "min": 1.934969,
+     "max": 1.965979,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 3.804094,
+     "min": 3.664912,
+     "max": 3.957895,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.078137,
+     "min": 0.076943,
+     "max": 0.079427,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.15,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 5.3,
+     "min": 4.9,
+     "max": 5.6,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 39.333333,
+     "min": 36.0,
+     "max": 44.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 164.666667,
+     "min": 159.0,
+     "max": 171.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 15.333333,
+     "min": 14.0,
+     "max": 16.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.786389,
+     "min": 0.77,
+     "max": 0.811667,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.97879,
+     "min": 1.963636,
+     "max": 2.000108,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.356725,
+     "min": 8.07193,
+     "max": 8.882456,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.076807,
+     "min": 0.062817,
+     "max": 0.085371,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.3,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 15.8,
+     "min": 13.0,
+     "max": 18.9,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 130.666667,
+     "min": 115.0,
+     "max": 149.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 168.333333,
+     "min": 160.0,
+     "max": 174.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 67.333333,
+     "min": 53.0,
+     "max": 83.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.859444,
+     "min": 0.8325,
+     "max": 0.874167,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 3.267987,
+     "min": 3.121111,
+     "max": 3.515169,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 5.549123,
+     "min": 5.350877,
+     "max": 5.868421,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.074502,
+     "min": 0.064401,
+     "max": 0.091259,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "naive",
+    "hotspot_fraction": 0.3,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 13.033333,
+     "min": 10.3,
+     "max": 15.9,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 104.0,
+     "min": 84.0,
+     "max": 119.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 162.0,
+     "min": 156.0,
+     "max": 173.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 53.666667,
+     "min": 40.0,
+     "max": 68.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.818056,
+     "min": 0.806667,
+     "max": 0.839167,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.961163,
+     "min": 2.616232,
+     "max": 3.211155,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 11.460819,
+     "min": 10.792982,
+     "max": 11.838596,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.079302,
+     "min": 0.068828,
+     "max": 0.093364,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.0,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.133333,
+     "min": 0.0,
+     "max": 0.4,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 94.666667,
+     "min": 77.0,
+     "max": 110.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.666667,
+     "min": 0.0,
+     "max": 2.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.045733,
+     "min": 2.036595,
+     "max": 2.062778,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.098246,
+     "min": 8.005263,
+     "max": 8.191228,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.154992,
+     "min": 0.149435,
+     "max": 0.160352,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.0,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.266667,
+     "min": 0.0,
+     "max": 0.6,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 98.333333,
+     "min": 84.0,
+     "max": 113.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 1.333333,
+     "min": 0.0,
+     "max": 3.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.984128,
+     "min": 1.890917,
+     "max": 2.080992,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 15.554971,
+     "min": 15.419298,
+     "max": 15.77193,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.15648,
+     "min": 0.15209,
+     "max": 0.158833,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.15,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.333333,
+     "min": 0.0,
+     "max": 0.6,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 1.0,
+     "min": 0.0,
+     "max": 2.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 92.333333,
+     "min": 89.0,
+     "max": 94.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 1.666667,
+     "min": 0.0,
+     "max": 3.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.104245,
+     "min": 2.016817,
+     "max": 2.219461,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.277778,
+     "min": 7.875439,
+     "max": 8.589474,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.144708,
+     "min": 0.136418,
+     "max": 0.155997,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.15,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.2,
+     "min": 0.0,
+     "max": 0.6,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.666667,
+     "min": 0.0,
+     "max": 2.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 100.333333,
+     "min": 94.0,
+     "max": 110.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 1.0,
+     "min": 0.0,
+     "max": 3.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.08051,
+     "min": 2.016318,
+     "max": 2.171256,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 16.606433,
+     "min": 15.929825,
+     "max": 17.364912,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.146169,
+     "min": 0.130308,
+     "max": 0.164675,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.3,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.533333,
+     "min": 0.2,
+     "max": 1.2,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 105.666667,
+     "min": 98.0,
+     "max": 119.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 2.666667,
+     "min": 1.0,
+     "max": 6.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.149839,
+     "min": 2.131211,
+     "max": 2.163578,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.769591,
+     "min": 8.742105,
+     "max": 8.794737,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.140777,
+     "min": 0.109458,
+     "max": 0.163086,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "damped",
+    "hotspot_fraction": 0.3,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.533333,
+     "min": 0.2,
+     "max": 0.8,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 1.333333,
+     "min": 1.0,
+     "max": 2.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 110.666667,
+     "min": 102.0,
+     "max": 117.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 2.666667,
+     "min": 1.0,
+     "max": 4.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.241649,
+     "min": 2.202659,
+     "max": 2.314074,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 18.173684,
+     "min": 17.438596,
+     "max": 18.996491,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.131227,
+     "min": 0.110297,
+     "max": 0.142656,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.0,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 98.666667,
+     "min": 89.0,
+     "max": 110.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.032868,
+     "min": 2.024184,
+     "max": 2.037825,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.033333,
+     "min": 7.996491,
+     "max": 8.098246,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.152284,
+     "min": 0.149435,
+     "max": 0.15519,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.0,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 102.333333,
+     "min": 98.0,
+     "max": 107.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 1.999198,
+     "min": 1.890917,
+     "max": 2.114697,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 15.874854,
+     "min": 15.473684,
+     "max": 16.22807,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.15185,
+     "min": 0.151591,
+     "max": 0.15209,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.15,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 99.666667,
+     "min": 93.0,
+     "max": 112.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.101897,
+     "min": 2.059905,
+     "max": 2.16933,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.387719,
+     "min": 8.157895,
+     "max": 8.636842,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.139575,
+     "min": 0.125725,
+     "max": 0.156581,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.15,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 101.0,
+     "min": 94.0,
+     "max": 110.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.062259,
+     "min": 1.999204,
+     "max": 2.171256,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 16.45848,
+     "min": 15.485965,
+     "max": 17.364912,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.144408,
+     "min": 0.130308,
+     "max": 0.159391,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.3,
+    "send_rate": 20.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 99.0,
+     "min": 98.0,
+     "max": 100.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.117877,
+     "min": 2.046023,
+     "max": 2.158227,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 8.790643,
+     "min": 8.463158,
+     "max": 9.187719,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.137066,
+     "min": 0.107241,
+     "max": 0.163414,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   },
+   {
+    "vsepr": "off",
+    "hotspot_fraction": 0.3,
+    "send_rate": 40.0,
+    "state_changes_per_min_vsepr": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "vsepr_flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "flaps": {
+     "mean": 99.0,
+     "min": 91.0,
+     "max": 112.0,
+     "n": 3
+    },
+    "demotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "active_fraction_mean": {
+     "mean": 0.533333,
+     "min": 0.533333,
+     "max": 0.533333,
+     "n": 3
+    },
+    "mean_max_avg_load_ratio": {
+     "mean": 2.165653,
+     "min": 2.026636,
+     "max": 2.270113,
+     "n": 3
+    },
+    "mean_peak_relay_load": {
+     "mean": 17.921637,
+     "min": 17.552632,
+     "max": 18.487719,
+     "n": 3
+    },
+    "share_to_asleep": {
+     "mean": 0.117244,
+     "min": 0.106681,
+     "max": 0.136194,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    }
+   }
+  ]
+ },
+ "rto": {
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "duration": 300.0,
+  "kill_at": 120.0,
+  "rows": [
+   {
+    "case": "kill50",
+    "kill_fraction": 0.5,
+    "send_rate": 20.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 0.5,
+    "rto_service_s": {
+     "mean": 22.983022,
+     "min": 22.723919,
+     "max": 23.070218,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.133207,
+     "min": 0.03125,
+     "max": 0.258621,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 0.900544,
+     "min": 0.21302,
+     "max": 2.152176,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill50",
+    "kill_fraction": 0.5,
+    "send_rate": 80.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 49.992738,
+     "min": 25.036848,
+     "max": 85.401927,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.171728,
+     "min": 0.087591,
+     "max": 0.229508,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 0.278947,
+     "min": 0.036692,
+     "max": 0.491478,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 453.4,
+     "min": 138.0,
+     "max": 781.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill50",
+    "kill_fraction": 0.5,
+    "send_rate": 20.0,
+    "relay_capacity": 10.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 26.941364,
+     "min": 23.03439,
+     "max": 34.273245,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.134115,
+     "min": 0.03125,
+     "max": 0.263158,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 0.900544,
+     "min": 0.21302,
+     "max": 2.152176,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 55.8,
+     "min": 24.0,
+     "max": 116.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill60",
+    "kill_fraction": 0.6,
+    "send_rate": 20.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 0.5,
+    "rto_service_s": {
+     "mean": 4.538602,
+     "min": 4.519126,
+     "max": 4.557088,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.383866,
+     "min": 0.269841,
+     "max": 0.48,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 2.487801,
+     "min": 0.718652,
+     "max": 4.519126,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill60",
+    "kill_fraction": 0.6,
+    "send_rate": 80.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 31.44191,
+     "min": 4.555504,
+     "max": 63.504621,
+     "n": 4
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.361726,
+     "min": 0.232759,
+     "max": 0.455285,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 0.364642,
+     "min": 0.031692,
+     "max": 0.762542,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 1271.0,
+     "min": 530.0,
+     "max": 2425.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill60",
+    "kill_fraction": 0.6,
+    "send_rate": 20.0,
+    "relay_capacity": 10.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 20.98517,
+     "min": 11.628034,
+     "max": 34.062403,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.382101,
+     "min": 0.274194,
+     "max": 0.48,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 2.487801,
+     "min": 0.718652,
+     "max": 4.519126,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 173.6,
+     "min": 43.0,
+     "max": 331.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill100",
+    "kill_fraction": 1.0,
+    "send_rate": 20.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 0.5,
+    "rto_service_s": {
+     "mean": 4.594092,
+     "min": 4.52781,
+     "max": 4.657346,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.072646,
+     "min": 0.05618,
+     "max": 0.103896,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 4.594092,
+     "min": 4.52781,
+     "max": 4.657346,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill100",
+    "kill_fraction": 1.0,
+    "send_rate": 80.0,
+    "relay_capacity": 40.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 9.548528,
+     "min": 4.525188,
+     "max": 29.612055,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.089246,
+     "min": 0.07513,
+     "max": 0.096447,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 4.533387,
+     "min": 4.525188,
+     "max": 4.548137,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 205.2,
+     "min": 47.0,
+     "max": 443.0,
+     "n": 5
+    }
+   },
+   {
+    "case": "kill100",
+    "kill_fraction": 1.0,
+    "send_rate": 20.0,
+    "relay_capacity": 10.0,
+    "load_ratio": 2.0,
+    "rto_service_s": {
+     "mean": 4.592092,
+     "min": 4.52781,
+     "max": 4.667346,
+     "n": 5
+    },
+    "min_ratio_after_kill": {
+     "mean": 0.072646,
+     "min": 0.05618,
+     "max": 0.103896,
+     "n": 5
+    },
+    "first_delivery_after_kill_s": {
+     "mean": 4.592092,
+     "min": 4.52781,
+     "max": 4.667346,
+     "n": 5
+    },
+    "drops_congestion": {
+     "mean": 10.4,
+     "min": 2.0,
+     "max": 28.0,
+     "n": 5
+    }
+   }
+  ]
+ },
+ "resonance": {
+  "seeds": [
+   1,
+   2,
+   3
+  ],
+  "duration": 300.0,
+  "vsepr": "off",
+  "rows": [
+   {
+    "resonance": "off",
+    "send_rate": 20.0,
+    "flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "state_changes_per_min_resonance": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "mean_hops": {
+     "mean": 7.763102,
+     "min": 7.661585,
+     "max": 7.840351,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    }
+   },
+   {
+    "resonance": "on",
+    "send_rate": 20.0,
+    "flaps": {
+     "mean": 51.333333,
+     "min": 49.0,
+     "max": 54.0,
+     "n": 3
+    },
+    "state_changes_per_min_resonance": {
+     "mean": 23.866667,
+     "min": 23.6,
+     "max": 24.0,
+     "n": 3
+    },
+    "mean_hops": {
+     "mean": 9.306875,
+     "min": 9.229262,
+     "max": 9.432084,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "n": 3
+    }
+   },
+   {
+    "resonance": "off",
+    "send_rate": 80.0,
+    "flaps": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "state_changes_per_min_resonance": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 3
+    },
+    "mean_hops": {
+     "mean": 7.794776,
+     "min": 7.684458,
+     "max": 7.955756,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 179.666667,
+     "min": 6.0,
+     "max": 519.0,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 0.991477,
+     "min": 0.975469,
+     "max": 0.99972,
+     "n": 3
+    }
+   },
+   {
+    "resonance": "on",
+    "send_rate": 80.0,
+    "flaps": {
+     "mean": 51.333333,
+     "min": 50.0,
+     "max": 52.0,
+     "n": 3
+    },
+    "state_changes_per_min_resonance": {
+     "mean": 24.0,
+     "min": 24.0,
+     "max": 24.0,
+     "n": 3
+    },
+    "mean_hops": {
+     "mean": 9.082057,
+     "min": 8.573375,
+     "max": 9.570601,
+     "n": 3
+    },
+    "drops_congestion": {
+     "mean": 1323.333333,
+     "min": 1176.0,
+     "max": 1576.0,
+     "n": 3
+    },
+    "deliverable_ratio": {
+     "mean": 0.93602,
+     "min": 0.920613,
+     "max": 0.944339,
+     "n": 3
+    }
+   }
+  ]
+ },
+ "promote": {
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "duration": 600.0,
+  "rows": [
+   {
+    "vsepr_promote": 0,
+    "active_fraction_end": {
+     "mean": 0.556667,
+     "min": 0.533333,
+     "max": 0.566667,
+     "n": 5
+    },
+    "active_fraction_mean": {
+     "mean": 0.5445,
+     "min": 0.534167,
+     "max": 0.555833,
+     "n": 5
+    },
+    "demotions": {
+     "mean": 32.2,
+     "min": 23.0,
+     "max": 48.0,
+     "n": 5
+    },
+    "promotions": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n": 5
+    },
+    "vsepr_repair_promotions": {
+     "mean": 33.6,
+     "min": 25.0,
+     "max": 49.0,
+     "n": 5
+    },
+    "vsepr_flaps": {
+     "mean": 44.2,
+     "min": 35.0,
+     "max": 60.0,
+     "n": 5
+    },
+    "state_changes_per_min_vsepr": {
+     "mean": 6.58,
+     "min": 4.8,
+     "max": 9.7,
+     "n": 5
+    }
+   },
+   {
+    "vsepr_promote": 1,
+    "active_fraction_end": {
+     "mean": 0.89,
+     "min": 0.833333,
+     "max": 0.933333,
+     "n": 5
+    },
+    "active_fraction_mean": {
+     "mean": 0.756333,
+     "min": 0.716667,
+     "max": 0.7975,
+     "n": 5
+    },
+    "demotions": {
+     "mean": 37.8,
+     "min": 29.0,
+     "max": 46.0,
+     "n": 5
+    },
+    "promotions": {
+     "mean": 37.8,
+     "min": 29.0,
+     "max": 46.0,
+     "n": 5
+    },
+    "vsepr_repair_promotions": {
+     "mean": 21.4,
+     "min": 18.0,
+     "max": 24.0,
+     "n": 5
+    },
+    "vsepr_flaps": {
+     "mean": 76.2,
+     "min": 68.0,
+     "max": 89.0,
+     "n": 5
+    },
+    "state_changes_per_min_vsepr": {
+     "mean": 9.7,
+     "min": 7.8,
+     "max": 11.6,
+     "n": 5
+    }
+   },
+   {
+    "vsepr_promote": 2,
+    "active_fraction_end": {
+     "mean": 0.923333,
+     "min": 0.9,
+     "max": 0.95,
+     "n": 5
+    },
+    "active_fraction_mean": {
+     "mean": 0.855833,
+     "min": 0.821667,
+     "max": 0.879167,
+     "n": 5
+    },
+    "demotions": {
+     "mean": 59.8,
+     "min": 39.0,
+     "max": 83.0,
+     "n": 5
+    },
+    "promotions": {
+     "mean": 76.4,
+     "min": 56.0,
+     "max": 102.0,
+     "n": 5
+    },
+    "vsepr_repair_promotions": {
+     "mean": 6.8,
+     "min": 4.0,
+     "max": 9.0,
+     "n": 5
+    },
+    "vsepr_flaps": {
+     "mean": 114.4,
+     "min": 78.0,
+     "max": 149.0,
+     "n": 5
+    },
+    "state_changes_per_min_vsepr": {
+     "mean": 14.3,
+     "min": 10.3,
+     "max": 18.9,
+     "n": 5
+    }
+   }
+  ]
+ }
+}

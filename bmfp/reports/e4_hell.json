@@ -1,0 +1,3209 @@
+{
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "duration": 300.0,
+ "rows": [
+  {
+   "routing": "chill",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 7.031766,
+    "min": 6.375138,
+    "max": 7.491766,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.031766,
+    "min": 6.375138,
+    "max": 7.491766,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 76.666667,
+    "min": 65.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.733889,
+    "min": 0.685,
+    "max": 0.793333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.956038,
+    "min": 0.94944,
+    "max": 0.96353,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 9.140959,
+    "min": 8.564724,
+    "max": 9.559374,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000397,
+    "min": 0.0,
+    "max": 0.000813,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 6.920059,
+    "min": 6.643073,
+    "max": 7.163039,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 430.0,
+    "min": 425.0,
+    "max": 435.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.716667,
+    "min": 0.691667,
+    "max": 0.761667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 6.58707,
+    "min": 6.294425,
+    "max": 7.144058,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 6.58707,
+    "min": 6.294425,
+    "max": 7.144058,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 70.0,
+    "min": 65.0,
+    "max": 75.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.787778,
+    "min": 0.728333,
+    "max": 0.82,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.953678,
+    "min": 0.948639,
+    "max": 0.958017,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 9.817703,
+    "min": 9.628447,
+    "max": 9.954,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.00187,
+    "min": 0.001425,
+    "max": 0.002645,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.293317,
+    "min": 7.219305,
+    "max": 7.347038,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 436.666667,
+    "min": 435.0,
+    "max": 440.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.689444,
+    "min": 0.656667,
+    "max": 0.71,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 7.563934,
+    "min": 7.133792,
+    "max": 7.843467,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.563934,
+    "min": 7.133792,
+    "max": 7.843467,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 83.333333,
+    "min": 80.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.708333,
+    "min": 0.681667,
+    "max": 0.756667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.955307,
+    "min": 0.937946,
+    "max": 0.966759,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 9.64313,
+    "min": 8.41798,
+    "max": 11.399087,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.003315,
+    "min": 0.003067,
+    "max": 0.00345,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.195703,
+    "min": 6.516404,
+    "max": 8.144597,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 436.666667,
+    "min": 430.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.71,
+    "min": 0.62,
+    "max": 0.783333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.992613,
+    "min": 0.990146,
+    "max": 0.99622,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 7.598101,
+    "min": 7.306202,
+    "max": 7.959042,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.00057,
+    "min": 0.000452,
+    "max": 0.000676,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 155.666667,
+    "min": 84.0,
+    "max": 206.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.357002,
+    "min": 7.125706,
+    "max": 7.698766,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 85.0,
+    "min": 85.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.716111,
+    "min": 0.681667,
+    "max": 0.751667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.862084,
+    "min": 0.82451,
+    "max": 0.906244,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 12.020064,
+    "min": 10.355049,
+    "max": 13.756424,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.005995,
+    "min": 0.005078,
+    "max": 0.006525,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 1252.333333,
+    "min": 691.0,
+    "max": 1734.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.49078,
+    "min": 7.044882,
+    "max": 8.043106,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 450.0,
+    "min": 440.0,
+    "max": 460.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.657222,
+    "min": 0.6,
+    "max": 0.721667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 10.759999,
+    "min": 10.461101,
+    "max": 11.347212,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.372966,
+    "min": 0.279317,
+    "max": 0.464312,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.372966,
+    "min": 1.279317,
+    "max": 1.464312,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.316647,
+    "min": 7.038662,
+    "max": 7.751423,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 76.666667,
+    "min": 70.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.725,
+    "min": 0.68,
+    "max": 0.753333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.955111,
+    "min": 0.943143,
+    "max": 0.967695,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.913689,
+    "min": 11.835438,
+    "max": 11.965569,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.157135,
+    "min": 0.097352,
+    "max": 0.231791,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000777,
+    "min": 0.000378,
+    "max": 0.001138,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.214009,
+    "min": 1.128664,
+    "max": 1.323086,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.497266,
+    "min": 7.118361,
+    "max": 7.739308,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 431.666667,
+    "min": 420.0,
+    "max": 440.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.690556,
+    "min": 0.641667,
+    "max": 0.725,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 10.884398,
+    "min": 9.869887,
+    "max": 11.666243,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.405421,
+    "min": 0.205103,
+    "max": 0.558498,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.405421,
+    "min": 1.205103,
+    "max": 1.558498,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.227122,
+    "min": 6.722111,
+    "max": 7.974484,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 76.666667,
+    "min": 70.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.731667,
+    "min": 0.681667,
+    "max": 0.773333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.957164,
+    "min": 0.948239,
+    "max": 0.963505,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 12.089891,
+    "min": 11.768565,
+    "max": 12.294034,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.171385,
+    "min": 0.141234,
+    "max": 0.187464,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001432,
+    "min": 0.001218,
+    "max": 0.001539,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.23345,
+    "min": 1.191081,
+    "max": 1.261583,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.4671,
+    "min": 7.288188,
+    "max": 7.609172,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 430.0,
+    "min": 420.0,
+    "max": 435.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.704444,
+    "min": 0.658333,
+    "max": 0.735,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 10.41087,
+    "min": 9.9651,
+    "max": 10.821566,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.28876,
+    "min": 0.206608,
+    "max": 0.347826,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 3.2e-05,
+    "min": 0.0,
+    "max": 9.6e-05,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.28876,
+    "min": 1.206608,
+    "max": 1.347826,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.765057,
+    "min": 7.5818,
+    "max": 8.042345,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 83.333333,
+    "min": 80.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.703889,
+    "min": 0.693333,
+    "max": 0.721667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.951733,
+    "min": 0.946659,
+    "max": 0.960899,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 12.391727,
+    "min": 12.26162,
+    "max": 12.632647,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.163377,
+    "min": 0.099127,
+    "max": 0.250446,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.003087,
+    "min": 0.002935,
+    "max": 0.003225,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.333333,
+    "min": 0.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.220897,
+    "min": 1.122121,
+    "max": 1.355804,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.68994,
+    "min": 7.236162,
+    "max": 8.079966,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 436.666667,
+    "min": 425.0,
+    "max": 445.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.669444,
+    "min": 0.635,
+    "max": 0.73,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.949621,
+    "min": 0.932101,
+    "max": 0.963376,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 10.945149,
+    "min": 10.690223,
+    "max": 11.414716,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.133104,
+    "min": 0.10296,
+    "max": 0.15953,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.00198,
+    "min": 0.001694,
+    "max": 0.002519,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 1080.666667,
+    "min": 815.0,
+    "max": 1388.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.123491,
+    "min": 1.101125,
+    "max": 1.154663,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.112758,
+    "min": 7.926392,
+    "max": 8.274481,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 266.666667,
+    "min": 255.0,
+    "max": 280.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.633333,
+    "min": 0.623333,
+    "max": 0.643333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.827983,
+    "min": 0.786249,
+    "max": 0.866037,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 13.941985,
+    "min": 13.267312,
+    "max": 14.811493,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.06395,
+    "min": 0.028509,
+    "max": 0.112628,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.005663,
+    "min": 0.004538,
+    "max": 0.00656,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 1681.0,
+    "min": 1258.0,
+    "max": 2163.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.073467,
+    "min": 1.025601,
+    "max": 1.139441,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.707933,
+    "min": 7.450616,
+    "max": 7.911659,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 451.666667,
+    "min": 445.0,
+    "max": 455.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.605556,
+    "min": 0.533333,
+    "max": 0.693333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 7.949754,
+    "min": 7.770343,
+    "max": 8.212545,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.420044,
+    "min": 1.358729,
+    "max": 1.459559,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.841191,
+    "min": 8.787132,
+    "max": 8.921516,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 78.333333,
+    "min": 75.0,
+    "max": 80.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.729444,
+    "min": 0.681667,
+    "max": 0.755,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.903178,
+    "min": 0.899657,
+    "max": 0.905009,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.997904,
+    "min": 11.821903,
+    "max": 12.329729,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001386,
+    "min": 0.00123,
+    "max": 0.001696,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.45127,
+    "min": 1.377698,
+    "max": 1.522975,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.587791,
+    "min": 8.516222,
+    "max": 8.627226,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 450.0,
+    "min": 445.0,
+    "max": 455.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.715,
+    "min": 0.703333,
+    "max": 0.731667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 7.923531,
+    "min": 7.816937,
+    "max": 8.117657,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.466519,
+    "min": 1.425557,
+    "max": 1.510312,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.818179,
+    "min": 8.737084,
+    "max": 8.969324,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 76.666667,
+    "min": 75.0,
+    "max": 80.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.741667,
+    "min": 0.715,
+    "max": 0.766667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.904485,
+    "min": 0.883625,
+    "max": 0.921019,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.955079,
+    "min": 11.801697,
+    "max": 12.081308,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001906,
+    "min": 0.001778,
+    "max": 0.002023,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.454398,
+    "min": 1.239542,
+    "max": 1.727263,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.586575,
+    "min": 8.408456,
+    "max": 8.766054,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 451.666667,
+    "min": 450.0,
+    "max": 455.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.720556,
+    "min": 0.665,
+    "max": 0.781667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 8.069103,
+    "min": 7.531632,
+    "max": 8.413094,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 3.1e-05,
+    "min": 0.0,
+    "max": 9.4e-05,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.431621,
+    "min": 1.249953,
+    "max": 1.682114,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.871557,
+    "min": 8.616893,
+    "max": 9.014442,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 81.666667,
+    "min": 75.0,
+    "max": 85.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.721667,
+    "min": 0.663333,
+    "max": 0.796667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.905624,
+    "min": 0.898288,
+    "max": 0.91491,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.897362,
+    "min": 11.829709,
+    "max": 12.027834,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.003971,
+    "min": 0.003787,
+    "max": 0.004236,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.333333,
+    "min": 0.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.416528,
+    "min": 1.261255,
+    "max": 1.563756,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.517318,
+    "min": 8.421089,
+    "max": 8.580642,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 450.0,
+    "min": 450.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.71,
+    "min": 0.658333,
+    "max": 0.753333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.990398,
+    "min": 0.981496,
+    "max": 0.999088,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 8.325095,
+    "min": 7.681808,
+    "max": 8.906513,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000684,
+    "min": 0.000183,
+    "max": 0.000999,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 210.333333,
+    "min": 20.0,
+    "max": 415.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.395817,
+    "min": 1.303348,
+    "max": 1.577997,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.837229,
+    "min": 8.697025,
+    "max": 9.051472,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 91.666667,
+    "min": 80.0,
+    "max": 105.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.725,
+    "min": 0.695,
+    "max": 0.776667,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.799395,
+    "min": 0.783161,
+    "max": 0.826766,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 14.467863,
+    "min": 13.488295,
+    "max": 15.024584,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.00626,
+    "min": 0.005577,
+    "max": 0.006654,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 1909.666667,
+    "min": 1553.0,
+    "max": 2120.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.11052,
+    "min": 1.03977,
+    "max": 1.197911,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.321947,
+    "min": 8.221696,
+    "max": 8.508872,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 458.333333,
+    "min": 455.0,
+    "max": 460.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.593333,
+    "min": 0.543333,
+    "max": 0.64,
+    "n": 3
+   }
+  }
+ ],
+ "fixed_cell": {
+  "vsepr": "off",
+  "resonance": "off"
+ },
+ "fixed_rows": [
+  {
+   "routing": "chill",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.951749,
+    "min": 0.947599,
+    "max": 0.957964,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 10.068755,
+    "min": 9.994954,
+    "max": 10.154836,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001523,
+    "min": 0.001181,
+    "max": 0.002011,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.552851,
+    "min": 7.453211,
+    "max": 7.613144,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 438.333333,
+    "min": 435.0,
+    "max": 440.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.991477,
+    "min": 0.975469,
+    "max": 0.99972,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 8.10669,
+    "min": 7.726368,
+    "max": 8.601318,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000882,
+    "min": 0.00014,
+    "max": 0.00218,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 179.666667,
+    "min": 6.0,
+    "max": 519.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.794776,
+    "min": 7.684458,
+    "max": 7.955756,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 135.0,
+    "min": 75.0,
+    "max": 245.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.953982,
+    "min": 0.952363,
+    "max": 0.955325,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.093929,
+    "min": 11.043826,
+    "max": 11.157063,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.059541,
+    "min": 0.054022,
+    "max": 0.066195,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001698,
+    "min": 0.000913,
+    "max": 0.002601,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.084156,
+    "min": 1.074009,
+    "max": 1.093813,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.634556,
+    "min": 7.551701,
+    "max": 7.683899,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 438.333333,
+    "min": 435.0,
+    "max": 440.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.981774,
+    "min": 0.952874,
+    "max": 0.996824,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 9.671421,
+    "min": 9.315434,
+    "max": 10.36857,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.101935,
+    "min": 0.091919,
+    "max": 0.119891,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001494,
+    "min": 0.000706,
+    "max": 0.003026,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 382.0,
+    "min": 68.0,
+    "max": 997.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.100544,
+    "min": 1.085939,
+    "max": 1.120052,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 7.775967,
+    "min": 7.679457,
+    "max": 7.953519,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 143.333333,
+    "min": 80.0,
+    "max": 265.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.932287,
+    "min": 0.928992,
+    "max": 0.936086,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 11.110447,
+    "min": 11.082767,
+    "max": 11.1379,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.00158,
+    "min": 0.000469,
+    "max": 0.002658,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.135464,
+    "min": 1.120606,
+    "max": 1.146164,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.279682,
+    "min": 8.223916,
+    "max": 8.333535,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 446.666667,
+    "min": 445.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.987243,
+    "min": 0.963651,
+    "max": 0.999159,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 8.683865,
+    "min": 8.218544,
+    "max": 9.419344,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001083,
+    "min": 0.000187,
+    "max": 0.002845,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 269.0,
+    "min": 18.0,
+    "max": 769.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.104352,
+    "min": 1.092234,
+    "max": 1.122828,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.605825,
+    "min": 8.498112,
+    "max": 8.70517,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 143.333333,
+    "min": 80.0,
+    "max": 265.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 0.533333,
+    "min": 0.533333,
+    "max": 0.533333,
+    "n": 3
+   }
+  }
+ ],
+ "static_cell": {
+  "active_fraction": 1.0,
+  "vsepr": "off",
+  "resonance": "off"
+ },
+ "static_rows": [
+  {
+   "routing": "chill",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 4.715677,
+    "min": 4.690621,
+    "max": 4.737993,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.715677,
+    "min": 4.690621,
+    "max": 4.737993,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.98889,
+    "min": 0.985426,
+    "max": 0.990691,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 5.543109,
+    "min": 5.456403,
+    "max": 5.662185,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000899,
+    "min": 0.000681,
+    "max": 0.001008,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.696116,
+    "min": 4.675409,
+    "max": 4.710924,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 238.333333,
+    "min": 235.0,
+    "max": 240.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 4.717109,
+    "min": 4.694227,
+    "max": 4.733567,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.717109,
+    "min": 4.694227,
+    "max": 4.733567,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.986381,
+    "min": 0.985301,
+    "max": 0.987523,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 5.548556,
+    "min": 5.507581,
+    "max": 5.585652,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001683,
+    "min": 0.001015,
+    "max": 0.002022,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.695255,
+    "min": 4.674528,
+    "max": 4.711942,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 238.333333,
+    "min": 235.0,
+    "max": 240.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 4.718201,
+    "min": 4.710151,
+    "max": 4.724454,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.718201,
+    "min": 4.710151,
+    "max": 4.724454,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.986413,
+    "min": 0.985651,
+    "max": 0.987476,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 5.550786,
+    "min": 5.530657,
+    "max": 5.580483,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.002481,
+    "min": 0.001764,
+    "max": 0.003018,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.695661,
+    "min": 4.686549,
+    "max": 4.700788,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 238.333333,
+    "min": 235.0,
+    "max": 240.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 4.722247,
+    "min": 4.712327,
+    "max": 4.740075,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.722247,
+    "min": 4.712327,
+    "max": 4.740075,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "chill",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.987252,
+    "min": 0.986911,
+    "max": 0.987804,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 5.569942,
+    "min": 5.553135,
+    "max": 5.594365,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.005507,
+    "min": 0.005002,
+    "max": 0.006254,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.700634,
+    "min": 4.689919,
+    "max": 4.718573,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 240.0,
+    "min": 240.0,
+    "max": 240.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 19.582665,
+    "min": 19.522605,
+    "max": 19.638622,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.994437,
+    "min": 1.993684,
+    "max": 1.995363,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994437,
+    "min": 2.993684,
+    "max": 2.995363,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.715677,
+    "min": 4.690621,
+    "max": 4.737993,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 17.159438,
+    "min": 17.056343,
+    "max": 17.246108,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.214396,
+    "min": 1.200397,
+    "max": 1.225371,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000333,
+    "min": 0.0,
+    "max": 0.000662,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.99432,
+    "min": 2.993026,
+    "max": 2.995144,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 5.072528,
+    "min": 5.0361,
+    "max": 5.099702,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 45.0,
+    "min": 45.0,
+    "max": 45.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 19.595287,
+    "min": 19.533023,
+    "max": 19.638305,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.994959,
+    "min": 1.99451,
+    "max": 1.995706,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994959,
+    "min": 2.99451,
+    "max": 2.995706,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.717109,
+    "min": 4.694227,
+    "max": 4.733567,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.999945,
+    "min": 0.999834,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 17.255089,
+    "min": 17.156406,
+    "max": 17.338505,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.213816,
+    "min": 1.209083,
+    "max": 1.219553,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000166,
+    "min": 0.0,
+    "max": 0.000333,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.99356,
+    "min": 2.993143,
+    "max": 2.994307,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 5.081948,
+    "min": 5.055408,
+    "max": 5.099933,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 45.0,
+    "min": 45.0,
+    "max": 45.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 19.591191,
+    "min": 19.571663,
+    "max": 19.604084,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.994331,
+    "min": 1.993862,
+    "max": 1.994752,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994331,
+    "min": 2.993862,
+    "max": 2.994752,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.718201,
+    "min": 4.710151,
+    "max": 4.724454,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.999945,
+    "min": 0.999917,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 17.221142,
+    "min": 17.183379,
+    "max": 17.251674,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.20774,
+    "min": 1.202894,
+    "max": 1.210988,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000605,
+    "min": 0.000498,
+    "max": 0.000738,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.993097,
+    "min": 2.992775,
+    "max": 2.993706,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 5.086344,
+    "min": 5.081837,
+    "max": 5.093675,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 45.0,
+    "min": 45.0,
+    "max": 45.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 0.999945,
+    "min": 0.999918,
+    "max": 0.999959,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 19.521675,
+    "min": 19.490079,
+    "max": 19.571158,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.936361,
+    "min": 1.935835,
+    "max": 1.936855,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000275,
+    "min": 0.000167,
+    "max": 0.000453,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 1.333333,
+    "min": 1.0,
+    "max": 2.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.99439,
+    "min": 2.994069,
+    "max": 2.994674,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 4.755307,
+    "min": 4.744584,
+    "max": 4.773668,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 40.0,
+    "min": 40.0,
+    "max": 40.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "duplicate",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.999959,
+    "min": 0.999958,
+    "max": 0.999959,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 17.234778,
+    "min": 17.183941,
+    "max": 17.279931,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 1.203251,
+    "min": 1.19847,
+    "max": 1.207738,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.000856,
+    "min": 0.000741,
+    "max": 0.000953,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994145,
+    "min": 2.993869,
+    "max": 2.994546,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 5.091165,
+    "min": 5.07539,
+    "max": 5.116103,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 45.0,
+    "min": 45.0,
+    "max": 45.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 10.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 6.544244,
+    "min": 6.524741,
+    "max": 6.560119,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994437,
+    "min": 2.993684,
+    "max": 2.995363,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.475484,
+    "min": 8.45749,
+    "max": 8.487247,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 50.0,
+    "min": 50.0,
+    "max": 50.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 10.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.749111,
+    "min": 0.74528,
+    "max": 0.754049,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 15.31731,
+    "min": 15.022744,
+    "max": 15.494519,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.001039,
+    "min": 0.000444,
+    "max": 0.001778,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.993614,
+    "min": 2.993015,
+    "max": 2.994413,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.336382,
+    "min": 8.305145,
+    "max": 8.364444,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 446.666667,
+    "min": 445.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 20.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 6.546885,
+    "min": 6.527477,
+    "max": 6.562118,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994959,
+    "min": 2.99451,
+    "max": 2.995706,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.480099,
+    "min": 8.466977,
+    "max": 8.490504,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 50.0,
+    "min": 50.0,
+    "max": 50.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 20.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.743297,
+    "min": 0.739406,
+    "max": 0.747297,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 15.522658,
+    "min": 15.421638,
+    "max": 15.59463,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.002532,
+    "min": 0.001558,
+    "max": 0.003556,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.993878,
+    "min": 2.993477,
+    "max": 2.994157,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.342351,
+    "min": 8.336598,
+    "max": 8.351556,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 448.333333,
+    "min": 445.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 40.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 6.547404,
+    "min": 6.53963,
+    "max": 6.55156,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994331,
+    "min": 2.993862,
+    "max": 2.994752,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.48282,
+    "min": 8.480965,
+    "max": 8.48578,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 50.0,
+    "min": 50.0,
+    "max": 50.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 40.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.744273,
+    "min": 0.741815,
+    "max": 0.74795,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 15.475089,
+    "min": 15.340971,
+    "max": 15.591868,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.004512,
+    "min": 0.004056,
+    "max": 0.005135,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994119,
+    "min": 2.993659,
+    "max": 2.994649,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.348051,
+    "min": 8.340551,
+    "max": 8.352993,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 445.0,
+    "min": 445.0,
+    "max": 445.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 80.0,
+   "link_loss": 0.0,
+   "deliverable_ratio": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 6.549908,
+    "min": 6.541256,
+    "max": 6.563966,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 4.1e-05,
+    "min": 4.1e-05,
+    "max": 4.2e-05,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.994178,
+    "min": 2.993829,
+    "max": 2.994781,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.48443,
+    "min": 8.477419,
+    "max": 8.494096,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 50.0,
+    "min": 50.0,
+    "max": 50.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  },
+  {
+   "routing": "stripe",
+   "send_rate": 80.0,
+   "link_loss": 0.05,
+   "deliverable_ratio": {
+    "mean": 0.742742,
+    "min": 0.73917,
+    "max": 0.746956,
+    "n": 3
+   },
+   "tx_per_delivered": {
+    "mean": 15.555634,
+    "min": 15.427078,
+    "max": 15.676537,
+    "n": 3
+   },
+   "duplicates_per_delivered": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "out_of_order_per_delivered": {
+    "mean": 0.008121,
+    "min": 0.007375,
+    "max": 0.008694,
+    "n": 3
+   },
+   "congestion_drops": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "mean_paths": {
+    "mean": 2.993602,
+    "min": 2.993386,
+    "max": 2.993753,
+    "n": 3
+   },
+   "mean_hops": {
+    "mean": 8.344142,
+    "min": 8.336026,
+    "max": 8.351199,
+    "n": 3
+   },
+   "p95_latency_ms": {
+    "mean": 446.666667,
+    "min": 445.0,
+    "max": 450.0,
+    "n": 3
+   },
+   "active_fraction_mean": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 3
+   }
+  }
+ ]
+}
